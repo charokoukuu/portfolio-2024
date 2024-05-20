@@ -22,13 +22,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: 'pnpm'
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install PNPM
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
