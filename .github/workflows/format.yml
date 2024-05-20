@@ -22,16 +22,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          node-version: '16.x'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Run Prettier
-        run: pnpm format
+        run: npm run format
 
       - name: Commit and push changes
         run: |
