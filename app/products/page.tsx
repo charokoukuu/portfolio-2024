@@ -1,6 +1,7 @@
-import { getProtopedia } from '@/lib/client';
-import { Protopedia } from '../types/Prototype.type';
+import { Section } from '@/components/global/Section';
 import { ProductCard } from '@/components/product/ProductCard';
+import { getProtopedia } from '@/lib/connect/protopedia';
+import { addEllipsis } from '@/lib/utils/util';
 
 export const dynamic = 'force-static';
 const Products: React.FC = async () => {
@@ -14,17 +15,21 @@ const Products: React.FC = async () => {
 
   console.log(uniqueData);
   return (
-    <div className="text-center">
-      {uniqueData.map((item) => (
-        <ProductCard
-          key={item.id}
-          name={item.prototypeNm}
-          thumbnail={item.image1}
-          description={item.summary}
-          category={'WEBアプリ'}
-        />
-      ))}
-    </div>
+    <>
+      <Section>開発実績</Section>
+      <div className="mx-auto grid w-[90%] justify-center gap-x-2.5 sm:grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] sm:gap-y-3">
+        {uniqueData.map((item) => (
+          <ProductCard
+            key={item.id}
+            id={item.id}
+            name={item.prototypeNm}
+            thumbnail={item.image1}
+            description={addEllipsis(item.summary)}
+            category={'WEBアプリ'}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
