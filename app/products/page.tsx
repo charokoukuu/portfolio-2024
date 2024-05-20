@@ -1,6 +1,6 @@
-import { getProtopedia } from '@/lib/client';
-import { Protopedia } from '../types/Prototype.type';
 import { ProductCard } from '@/components/product/ProductCard';
+import { getProtopedia } from '@/lib/connect/protopedia';
+import { addEllipsis } from '@/lib/utils/util';
 
 export const dynamic = 'force-static';
 const Products: React.FC = async () => {
@@ -14,13 +14,13 @@ const Products: React.FC = async () => {
 
   console.log(uniqueData);
   return (
-    <div className="text-center">
+    <div className="mx-auto grid w-[90%] justify-center gap-x-2.5 gap-y-5 sm:grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))]">
       {uniqueData.map((item) => (
         <ProductCard
           key={item.id}
           name={item.prototypeNm}
           thumbnail={item.image1}
-          description={item.summary}
+          description={addEllipsis(item.summary)}
           category={'WEBアプリ'}
         />
       ))}
