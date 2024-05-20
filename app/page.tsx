@@ -2,6 +2,7 @@
 import { H1 } from '@/components/global/H1';
 import { InternCard } from '@/components/home/InternCard';
 import { ProfileCard } from '@/components/home/ProfileCard';
+import { TimeLine } from '@/components/home/TimeLine';
 import { Stack, useBreakpointValue } from '@chakra-ui/react';
 import { Dancing_Script } from 'next/font/google';
 const dancing_script = Dancing_Script({ subsets: ['latin'] });
@@ -50,8 +51,7 @@ const Home: React.FC = () => {
         justifyContent={'center'}
         alignItems={'center'}
       >
-        <ProfileCard />
-        <ProfileCard />
+        <TimeLine />
       </Stack>
     </div>
   );
