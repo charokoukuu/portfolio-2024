@@ -1,5 +1,5 @@
 import { H1 } from '../global/H1';
-import { Timeline } from './Timeline';
+import { Timeline } from './Timelines';
 export const Achievement = () => {
   return (
     <>
