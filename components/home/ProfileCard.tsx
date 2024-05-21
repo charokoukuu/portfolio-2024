@@ -5,7 +5,7 @@ export const ProfileCard = () => {
   return (
     <div>
       <Box className="relative h-[90vw] w-[90vw] rounded-2xl bg-[url('https://avatars.githubusercontent.com/u/35647163?v=4')] sm:h-[350px] sm:w-[350px]">
-        <Box className="bg-custom-gradient absolute left-0 top-0 h-full w-full rounded-2xl" />
+        <Box className="absolute left-0 top-0 h-full w-full rounded-2xl bg-custom-gradient" />
         <Text className="absolute left-[40px] top-[54px] text-6xl font-bold text-white">
           Hinata
           <br />
