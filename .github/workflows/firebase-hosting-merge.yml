@@ -12,7 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install
-      - run: npm run build --force
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_PROTOPEDIA_API_ENDPOINT: ${{ secrets.NEXT_PUBLIC_PROTOPEDIA_API_ENDPOINT }}
+          NEXT_PUBLIC_PROTOPEDIA_PAGE_ENDPOINT: ${{ secrets.NEXT_PUBLIC_PROTOPEDIA_PAGE_ENDPOINT }}
+          NEXT_PUBLIC_ACHIEVEMENT_ENDPOINT: ${{ secrets.NEXT_PUBLIC_ACHIEVEMENT_ENDPOINT }}
+          NEXT_PUBLIC_CONTACT_API_ENDPOINT: ${{ secrets.NEXT_PUBLIC_CONTACT_API_ENDPOINT }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
