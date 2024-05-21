@@ -17,7 +17,5 @@ export const getAchievement = async () => {
   }
 
   const data: TimelineData[] = await response.json();
-  console.log(data);
-
   return data;
 };

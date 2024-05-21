@@ -1,11 +1,9 @@
 import { H1 } from '@/components/global/H1';
-import { Section } from '@/components/global/Section';
 import { ProductCard } from '@/components/product/ProductCard';
 import { getProtopedia } from '@/lib/connect/protopedia';
 import { addEllipsis, categorizeTag } from '@/lib/utils/util';
 import { Dancing_Script } from 'next/font/google';
 export const dancing_script = Dancing_Script({ subsets: ['latin'] });
-
 export const dynamic = 'force-static';
 const Products: React.FC = async () => {
   const data = await getProtopedia();
@@ -16,7 +14,6 @@ const Products: React.FC = async () => {
     )
     .sort((a, b) => b.releaseAt.localeCompare(a.releaseAt));
 
-  console.log(uniqueData);
   return (
     <>
       <H1 className={dancing_script.className}>Products</H1>
