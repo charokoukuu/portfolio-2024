@@ -2,7 +2,7 @@ import { H1 } from '@/components/global/H1';
 import { Section } from '@/components/global/Section';
 import { ProductCard } from '@/components/product/ProductCard';
 import { getProtopedia } from '@/lib/connect/protopedia';
-import { addEllipsis } from '@/lib/utils/util';
+import { addEllipsis, categorizeTag } from '@/lib/utils/util';
 import { Dancing_Script } from 'next/font/google';
 export const dancing_script = Dancing_Script({ subsets: ['latin'] });
 
@@ -28,7 +28,7 @@ const Products: React.FC = async () => {
             name={item.prototypeNm}
             thumbnail={item.image1}
             description={addEllipsis(item.summary)}
-            category={'WEBアプリ'}
+            category={categorizeTag(item.tags ?? '')}
           />
         ))}
       </div>

@@ -8,7 +8,10 @@ interface Props {
   name: string;
   thumbnail: string;
   description: string;
-  category: string;
+  category: {
+    name: string;
+    color: string;
+  } | null;
 }
 
 export const ProductCard = (props: Props) => {
@@ -26,16 +29,30 @@ export const ProductCard = (props: Props) => {
       >
         <CardBody>
           <Image
-            className="m-auto h-[48vw] w-full object-cover object-center sm:h-[202px]"
+            className="relative m-auto h-[48vw] w-full object-cover object-center sm:h-[202px]"
             src={props.thumbnail}
             alt={props.name}
             borderRadius="lg"
           />
+          {props.category && (
+            <Box
+              style={{
+                background: props.category.color,
+              }}
+              className="absolute bottom-[108px] right-5 flex h-[25px] w-[90px] rounded-2xl bg-gradient-to-b"
+            >
+              <Text className="m-auto flex  justify-center text-center text-sm font-bold text-white">
+                {props.category.name}
+              </Text>
+            </Box>
+          )}
           <Text align={'left'} className="mt-3 font-bold">
             {props.name}
           </Text>
           <Divider className="mb-3" />
-          <Text align={'left'}>{props.description}</Text>
+          <Text color={'#707070'} align={'left'}>
+            {props.description}
+          </Text>
         </CardBody>
       </Card>
     </Box>
