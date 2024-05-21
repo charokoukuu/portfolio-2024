@@ -8,7 +8,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -22,12 +21,12 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import { useRouter } from 'next/navigation';
 
 export default function Appbar() {
   const { isOpen, onToggle } = useDisclosure();
-
   return (
-    <Box>
+    <Box className="cursor-pointer">
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -89,7 +88,7 @@ export default function Appbar() {
           direction={'row'}
           spacing={6}
         >
-          <Box />
+          <Box className="cursor-pointer" />
         </Stack>
       </Flex>
 
@@ -104,16 +103,19 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue('gray.600', 'gray.200');
   const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
-
+  const router = useRouter();
   return (
     <Stack direction={'row'} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
+        <Box className="cursor-pointer" key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Link
+              <Box
+                className="cursor-pointer"
                 p={2}
-                href={navItem.href ?? '#'}
+                onClick={() => {
+                  router.push(navItem.href ?? '#');
+                }}
                 fontSize={'sm'}
                 fontWeight={500}
                 color={linkColor}
@@ -123,7 +125,7 @@ const DesktopNav = () => {
                 }}
               >
                 {navItem.label}
-              </Link>
+              </Box>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -151,8 +153,11 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
-    <Link
-      href={href}
+    <Box
+      className="cursor-pointer"
+      onClick={() => {
+        window.location.href = href ?? '#';
+      }}
       role={'group'}
       display={'block'}
       p={2}
@@ -160,7 +165,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}
     >
       <Stack direction={'row'} align={'center'}>
-        <Box>
+        <Box className="cursor-pointer">
           <Text
             transition={'all .3s ease'}
             _groupHover={{ color: 'pink.400' }}
@@ -182,7 +187,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
-    </Link>
+    </Box>
   );
 };
 
@@ -207,8 +212,10 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
-        as={Link}
-        href={href ?? '#'}
+        as={Box}
+        onClick={() => {
+          window.location.href = href ?? '#';
+        }}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -243,9 +250,16 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Box
+                className="cursor-pointer"
+                key={child.label}
+                py={2}
+                onClick={() => {
+                  window.location.href = href ?? '#';
+                }}
+              >
                 {child.label}
-              </Link>
+              </Box>
             ))}
         </Stack>
       </Collapse>

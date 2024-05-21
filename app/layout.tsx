@@ -4,6 +4,7 @@ import './globals.css';
 import { Card, CardBody, ChakraProvider, Text } from '@chakra-ui/react';
 import Appbar from '@/components/global/Appbar';
 import Breadcrumbs from '@/components/global/Breadcrumbs';
+import { Footer } from '@/components/global/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Card className="m-auto mt-1 w-[98vw]">
             <CardBody>{children}</CardBody>
           </Card>
+          <Footer />
         </ChakraProvider>
       </body>
     </html>
