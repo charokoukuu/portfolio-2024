@@ -4,6 +4,8 @@ import { Stack, useBreakpointValue } from '@chakra-ui/react';
 import { H1 } from '../global/H1';
 import { ProfileCard } from './ProfileCard';
 import { Dancing_Script } from 'next/font/google';
+import { SkillCard } from './SkillCard';
+import { ChartCircle } from '../global/MyDoughnutChart';
 const dancing_script = Dancing_Script({ subsets: ['latin'] });
 export const Profile = () => {
   return (
@@ -16,7 +18,9 @@ export const Profile = () => {
         alignItems={'center'}
       >
         <ProfileCard />
-        <ProfileCard />
+        <SkillCard name={''} term={''}>
+          aaa
+        </SkillCard>
       </Stack>
     </>
   );
