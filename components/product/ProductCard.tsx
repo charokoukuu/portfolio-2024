@@ -1,6 +1,6 @@
 'use client';
 
-import { Text, Image, Card, CardBody, Box, Divider } from '@chakra-ui/react';
+import { Text, Card, CardBody, Box, Divider } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 
 interface Props {
@@ -8,7 +8,10 @@ interface Props {
   name: string;
   thumbnail: string;
   description: string;
-  category: string;
+  category: {
+    name: string;
+    color: string;
+  } | null;
 }
 
 export const ProductCard = (props: Props) => {
@@ -21,21 +24,34 @@ export const ProductCard = (props: Props) => {
   return (
     <Box m="6">
       <Card
-        className="m-auto w-[90vw] cursor-pointer hover:bg-gray-200 sm:w-[400px]"
+        className="m-auto w-[90vw] cursor-pointer transition-transform hover:scale-105 hover:bg-gray-200 sm:w-[400px]"
         onClick={handleClick}
       >
         <CardBody>
-          <Image
-            className="m-auto h-[48vw] w-full object-cover object-center sm:h-[202px]"
+          <img
+            className="relative m-auto h-[48vw] w-full rounded-lg object-cover object-center sm:h-[202px]"
             src={props.thumbnail}
             alt={props.name}
-            borderRadius="lg"
           />
+          {props.category && (
+            <Box
+              style={{
+                background: props.category.color,
+              }}
+              className="absolute bottom-[108px] right-5 flex h-[25px] w-[90px] rounded-2xl bg-gradient-to-b"
+            >
+              <Text className="m-auto flex  justify-center text-center text-sm font-bold text-white">
+                {props.category.name}
+              </Text>
+            </Box>
+          )}
           <Text align={'left'} className="mt-3 font-bold">
             {props.name}
           </Text>
           <Divider className="mb-3" />
-          <Text align={'left'}>{props.description}</Text>
+          <Text color={'#707070'} align={'left'}>
+            {props.description}
+          </Text>
         </CardBody>
       </Card>
     </Box>

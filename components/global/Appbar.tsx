@@ -60,7 +60,10 @@ export default function Appbar() {
           <Text
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}
+            color={'#006C84'}
+            onClick={() => {
+              window.location.href = '/';
+            }}
             className="font-bold"
           >
             Hinata Saito
