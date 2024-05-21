@@ -24,7 +24,7 @@ export default function RootLayout({
         <ChakraProvider>
           <Appbar />
           <Breadcrumbs className="my-3 ml-20 hidden text-gray-400 sm:flex" />
-          <Card className="m-auto mt-1 w-[98vw]">
+          <Card className="m-auto mb-3 mt-1 w-[98vw]">
             <CardBody>{children}</CardBody>
           </Card>
           <Footer />

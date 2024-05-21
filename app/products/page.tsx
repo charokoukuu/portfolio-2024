@@ -19,7 +19,6 @@ const Products: React.FC = async () => {
   console.log(uniqueData);
   return (
     <>
-      {/* <Section>開発実績</Section> */}
       <H1 className={dancing_script.className}>Products</H1>
       <div className="mx-auto grid w-[90%] justify-center gap-x-2.5 sm:grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] sm:gap-y-3">
         {uniqueData.map((item) => (
