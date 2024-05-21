@@ -26,9 +26,9 @@ export const skills: Skill[] = [{
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1200px-GraphQL_Logo.svg.png",
 },
 {
-    name: "Unity",
-    rate: 40,
-    image: "https://w7.pngwing.com/pngs/426/535/png-transparent-unity-new-logo-tech-companies-thumbnail.png",
+    name: "PostgreSQL",
+    rate: 60,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/800px-Postgresql_elephant.svg.png",
 },
 
 ]
