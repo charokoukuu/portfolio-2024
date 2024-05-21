@@ -12,7 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install
-      - run: npm install next react react-dom
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
