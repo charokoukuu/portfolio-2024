@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ChakraProvider, Text } from '@chakra-ui/react';
+import { Card, CardBody, ChakraProvider, Text } from '@chakra-ui/react';
 import Appbar from '@/components/global/Appbar';
 import Breadcrumbs from '@/components/global/Breadcrumbs';
+import { Footer } from '@/components/global/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +24,10 @@ export default function RootLayout({
         <ChakraProvider>
           <Appbar />
           <Breadcrumbs className="my-3 ml-20 hidden text-gray-400 sm:flex" />
-          {children}
+          <Card className="m-auto mt-1 w-[98vw]">
+            <CardBody>{children}</CardBody>
+          </Card>
+          <Footer />
         </ChakraProvider>
       </body>
     </html>

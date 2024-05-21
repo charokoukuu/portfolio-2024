@@ -21,12 +21,12 @@ export const ProductCard = (props: Props) => {
   return (
     <Box m="6">
       <Card
-        className="m-auto w-[400px] cursor-pointer hover:bg-gray-200"
+        className="m-auto w-[90vw] cursor-pointer hover:bg-gray-200 sm:w-[400px]"
         onClick={handleClick}
       >
         <CardBody>
           <Image
-            className="m-auto h-[202px] w-full object-cover object-center"
+            className="m-auto h-[48vw] w-full object-cover object-center sm:h-[202px]"
             src={props.thumbnail}
             alt={props.name}
             borderRadius="lg"
