@@ -24,7 +24,7 @@ export const ProductCard = (props: Props) => {
   return (
     <Box m="6">
       <Card
-        className="m-auto w-[90vw] cursor-pointer transition-transform hover:scale-105 hover:bg-gray-200 sm:w-[400px]"
+        className="m-auto h-[363px] w-[90vw] cursor-pointer transition-transform hover:scale-105 hover:bg-gray-200 sm:w-[400px]"
         onClick={handleClick}
       >
         <CardBody>
@@ -33,21 +33,23 @@ export const ProductCard = (props: Props) => {
             src={props.thumbnail}
             alt={props.name}
           />
-          {props.category && (
-            <Box
-              style={{
-                background: props.category.color,
-              }}
-              className="absolute bottom-[108px] right-5 flex h-[25px] w-[90px] rounded-2xl bg-gradient-to-b"
-            >
-              <Text className="m-auto flex  justify-center text-center text-sm font-bold text-white">
-                {props.category.name}
-              </Text>
-            </Box>
-          )}
-          <Text align={'left'} className="mt-3 font-bold">
-            {props.name}
-          </Text>
+          <div className="flex flex-row items-center justify-between">
+            <Text align={'left'} className="mt-3 flex font-bold">
+              {props.name}
+            </Text>
+            {props.category && (
+              <Box
+                style={{
+                  background: props.category.color,
+                }}
+                className="flex h-[25px] w-[90px] rounded-2xl bg-gradient-to-b"
+              >
+                <Text className="m-auto flex  justify-center text-center text-sm font-bold text-white">
+                  {props.category.name}
+                </Text>
+              </Box>
+            )}
+          </div>
           <Divider className="mb-3" />
           <Text color={'#707070'} align={'left'}>
             {props.description}

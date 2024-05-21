@@ -10,11 +10,6 @@ export const ISOStringToLocaleString = (date: string): string => {
   return `${year}年${month}月`;
 };
 
-type Category = {
-  name: string;
-  color: string;
-};
-
 export const categorizeTag = (tag: string) => {
   const webAppTags = ['webApp', 'React', '機械学習', 'MQTT'];
   const electronicsTags = [
