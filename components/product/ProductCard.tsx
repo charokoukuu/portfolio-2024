@@ -1,6 +1,6 @@
 'use client';
 
-import { Text, Image, Card, CardBody, Box, Divider } from '@chakra-ui/react';
+import { Text, Card, CardBody, Box, Divider } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 
 interface Props {
@@ -28,11 +28,10 @@ export const ProductCard = (props: Props) => {
         onClick={handleClick}
       >
         <CardBody>
-          <Image
-            className="relative m-auto h-[48vw] w-full object-cover object-center sm:h-[202px]"
+          <img
+            className="relative m-auto h-[48vw] w-full rounded-lg object-cover object-center sm:h-[202px]"
             src={props.thumbnail}
             alt={props.name}
-            borderRadius="lg"
           />
           {props.category && (
             <Box

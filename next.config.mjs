@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   images: {
+    disableStaticImages: true,
     domains: [
       'avatars.githubusercontent.com',
       'upload.wikimedia.org',

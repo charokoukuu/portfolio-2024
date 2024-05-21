@@ -2,7 +2,7 @@
 
 import { Box, Card, Divider, Text, Tooltip } from '@chakra-ui/react';
 import { ChartCircle } from '../global/MyDoughnutChart';
-import Image from 'next/image';
+import img from 'next/image';
 
 interface Props {
   name: string;
@@ -26,7 +26,7 @@ export const SkillContent = (props: Props) => {
           rate={props.rate}
           className="absolute left-1/2 top-2 z-10 flex -translate-x-1/2 transform"
         />
-        <Image
+        <img
           className="absolute left-1/2 top-[29px] z-20 m-auto -translate-x-1/2 rounded-lg"
           src={props.image}
           alt={props.name}
