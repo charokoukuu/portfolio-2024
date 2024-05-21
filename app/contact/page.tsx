@@ -19,11 +19,8 @@ import {
   ModalCloseButton,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
-import { Dancing_Script } from 'next/font/google';
 import { Form } from '../types/Contact.type';
 import { postContact } from '@/lib/connect/contact';
-
-export const dancing_script = Dancing_Script({ subsets: ['latin'] });
 
 const Contact: React.FC = () => {
   const {
@@ -41,7 +38,7 @@ const Contact: React.FC = () => {
 
   return (
     <Box p={4} maxW="600px" mx="auto" minH={'80vh'}>
-      <H1 className={dancing_script.className}>Contact</H1>
+      <H1>Contact</H1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <VStack spacing={4} mt={4}>
           <FormControl isInvalid={!!errors.name}>
