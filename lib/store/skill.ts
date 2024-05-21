@@ -19,6 +19,12 @@ export const skills: Skill[] = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQCCMzrp_Jt-DwwqXUaN4LfCjk2jMnx5S7JZefzb2piQ&s',
   },
   {
+    name: 'PostgreSQL',
+    rate: 70,
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/800px-Postgresql_elephant.svg.png',
+  },
+  {
     name: 'gRPC',
     rate: 70,
     image:
@@ -29,11 +35,5 @@ export const skills: Skill[] = [
     rate: 50,
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1200px-GraphQL_Logo.svg.png',
-  },
-  {
-    name: 'PostgreSQL',
-    rate: 60,
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/800px-Postgresql_elephant.svg.png',
   },
 ];

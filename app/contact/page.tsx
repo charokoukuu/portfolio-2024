@@ -22,6 +22,7 @@ import { useForm } from 'react-hook-form';
 import { Dancing_Script } from 'next/font/google';
 import { Form } from '../types/Contact.type';
 import { postContact } from '@/lib/connect/contact';
+import { ParticleSystem } from '@/components/global/ParticleSystem';
 
 export const dancing_script = Dancing_Script({ subsets: ['latin'] });
 

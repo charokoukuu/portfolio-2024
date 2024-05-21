@@ -5,6 +5,7 @@ import { Card, CardBody, ChakraProvider, Text } from '@chakra-ui/react';
 import Appbar from '@/components/global/Appbar';
 import Breadcrumbs from '@/components/global/Breadcrumbs';
 import { Footer } from '@/components/global/Footer';
+import { ParticleSystem } from '@/components/global/ParticleSystem';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Appbar />
           <Breadcrumbs className="my-3 ml-20 hidden text-gray-400 sm:flex" />
           <Card className="m-auto mb-3 mt-1 w-[98vw]">
+            <ParticleSystem />
             <CardBody>{children}</CardBody>
           </Card>
           <Footer />
