@@ -9,6 +9,13 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Notify start build
+        run: |
+          curl -H "Content-Type: application/json" -X POST -d '{
+              "content": "ビルド&デプロイを開始しました",
+              "username": "ビルドくん",
+              "avatar_url": "https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f4c09.appspot.com/o/DALL%C2%B7E%202024-05-22%2012.20.08%20-%20A%20cute%20robot%20in%20Japanese%20anime%20style.%20The%20robot%20has%20large%2C%20expressive%20eyes%2C%20a%20small%2C%20friendly%20smile%2C%20and%20a%20sleek%2C%20rounded%20body%20with%20soft%20edges.%20It%20fea.webp?alt=media&token=ac26ee2c-8edb-47ef-83fa-b59a86ecd59c"
+          }' ${{ secrets.NEXT_PUBLIC_CONTACT_API_ENDPOINT }}
       - uses: actions/checkout@v4
       - run: npm install
       - run: npm run build
@@ -23,3 +30,10 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_2024_F4C09 }}
           channelId: live
           projectId: portfolio-2024-f4c09
+      - name: Notify end build
+        run: |
+          curl -H "Content-Type: application/json" -X POST -d '{
+              "content": "デプロイが完了しました！",
+              "username": "ビルドくん",
+              "avatar_url": "https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f4c09.appspot.com/o/DALL%C2%B7E%202024-05-22%2012.20.08%20-%20A%20cute%20robot%20in%20Japanese%20anime%20style.%20The%20robot%20has%20large%2C%20expressive%20eyes%2C%20a%20small%2C%20friendly%20smile%2C%20and%20a%20sleek%2C%20rounded%20body%20with%20soft%20edges.%20It%20fea.webp?alt=media&token=ac26ee2c-8edb-47ef-83fa-b59a86ecd59c"
+          }' ${{ secrets.NEXT_PUBLIC_CONTACT_API_ENDPOINT }}
