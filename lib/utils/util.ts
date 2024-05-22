@@ -11,7 +11,17 @@ export const ISOStringToLocaleString = (date: string): string => {
 };
 
 export const categorizeTag = (tag: string) => {
-  const webAppTags = ['webApp', 'React', '機械学習', 'MQTT'];
+  const webAppTags = [
+    'webApp',
+    'React',
+    '機械学習',
+    'MQTT',
+    'Next.js',
+    'TypeScript',
+    'Node.js',
+    'Express',
+    'Firebase',
+  ];
   const electronicsTags = [
     'arduino',
     'IoT',
@@ -21,6 +31,7 @@ export const categorizeTag = (tag: string) => {
     'M5',
     'SDL',
     'Python',
+    'Raspberry Pi',
   ];
 
   let isWebApp = false;
