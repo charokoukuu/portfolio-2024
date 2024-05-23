@@ -1,3 +1,4 @@
+'use client';
 import { ISOStringToLocaleString } from '@/lib/utils/util';
 
 interface TimelineItemProps {
@@ -16,15 +17,22 @@ interface TimelineItemProps {
 }
 
 export const TimelineItem: React.FC<TimelineItemProps> = ({ data }) => (
-  <div className="timeline-item">
-    <div className="timeline-item-content">
+  <div
+    className="timeline-item"
+    onClick={() => {
+      if (data.link) {
+        window.open(data.link.url, '_blank');
+      }
+    }}
+  >
+    <div className="timeline-item-content cursor-pointer hover:bg-gray-200">
       <span className="tag" style={{ background: data.category.color }}>
         {data.category.tag}
       </span>
       <time>{ISOStringToLocaleString(data.date)}</time>
       <p>{data.text}</p>
       {data.link && (
-        <a href={data.link.url} target="_blank" rel="noopener noreferrer">
+        <a target="_blank" rel="noopener noreferrer">
           {data.link.text}
         </a>
       )}
