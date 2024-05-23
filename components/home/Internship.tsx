@@ -14,8 +14,13 @@ export const Internship = () => {
         justifyContent={'center'}
         alignItems={'center'}
       >
-        {internship.map((item) => (
-          <InternCard key={item.name} name={item.name} term={item.term}>
+        {internship.map((item, index) => (
+          <InternCard
+            key={item.name}
+            name={item.name}
+            term={item.term}
+            index={index}
+          >
             {item.content}
           </InternCard>
         ))}
