@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { ISOStringToLocaleString } from '@/lib/utils/util';
 import { Text } from '@chakra-ui/react';
-import { RocknRoll_One } from 'next/font/google';
+import { M_PLUS_Rounded_1c } from 'next/font/google';
 
 interface TimelineItemProps {
   data: {
@@ -21,9 +21,9 @@ interface TimelineItemProps {
   };
 }
 
-export const rocknRollOne = RocknRoll_One({
+export const titleFont = M_PLUS_Rounded_1c({
   subsets: ['latin'],
-  weight: '400',
+  weight: '700',
 });
 export const TimelineItem: React.FC<TimelineItemProps> = ({ data }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -84,11 +84,11 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ data }) => {
           {data.category.tag}
         </span>
         <time>
-          <span className="text-gray-100">
+          <span className="text-black sm:text-gray-100">
             {ISOStringToLocaleString(data.date)}
           </span>
         </time>
-        <Text className={rocknRollOne.className}>{data.text}</Text>
+        <Text className={titleFont.className}>{data.text}</Text>
         {data.award && (
           <Text className="font-bold text-blue-900">副賞: {data.award}</Text>
         )}
