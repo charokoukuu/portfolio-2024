@@ -1,5 +1,6 @@
 import { Protopedia } from '@/app/types/Prototype.type';
 
+export const dynamic = 'force-static';
 export const getProtopedia = async () => {
   const response = await fetch(
     process.env.NEXT_PUBLIC_PROTOPEDIA_API_ENDPOINT ?? '',

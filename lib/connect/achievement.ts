@@ -1,5 +1,6 @@
 import { TimelineData } from '@/app/types/Timeline.type';
 
+export const dynamic = 'force-static';
 export const getAchievement = async () => {
   const response = await fetch(
     process.env.NEXT_PUBLIC_ACHIEVEMENT_ENDPOINT ?? '',

@@ -10,11 +10,9 @@ export const dancing_script = Dancing_Script({ subsets: ['latin'] });
 export const H1 = ({ children }: Props) => {
   return (
     <div
-      className={
-        'm-auto flex justify-center py-[3%] ' + dancing_script.className
-      }
+      className={'m-auto flex justify-center py-8 ' + dancing_script.className}
     >
-      <div className="flex h-[67px] w-full items-center justify-center border-b-2 border-solid border-b-[#006C84] text-center text-5xl text-[#006C84] sm:w-[60vw]">
+      <div className="flex h-20 w-full items-center justify-center border-b-2 border-gray-300 text-center text-5xl text-gray-800 sm:w-3/4 lg:w-1/2">
         {children}
       </div>
     </div>
