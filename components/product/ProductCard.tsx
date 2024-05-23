@@ -24,7 +24,7 @@ export const ProductCard = (props: Props) => {
   return (
     <Box m="6">
       <Card
-        className="m-auto w-[90vw] cursor-pointer transition-transform hover:scale-105 hover:bg-gray-200 sm:w-[400px]"
+        className="m-auto h-[363px] w-[90vw] cursor-pointer transition-transform hover:scale-105 hover:bg-gray-200 sm:w-[400px]"
         onClick={handleClick}
       >
         <CardBody>

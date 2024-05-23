@@ -45,9 +45,9 @@ export default function RootLayout({
         <ChakraProvider>
           <Appbar />
           <Breadcrumbs className="my-3 ml-20 hidden text-gray-400 sm:flex" />
-          <Card className="m-auto mb-3 mt-1 w-[98vw]">
+          <Card className="m-auto mb-3 mt-1 w-[98vw] sm:mt-3">
             <ParticleSystem />
-            <CardBody>{children}</CardBody>
+            <CardBody className="rounded-lg bg-gray-50">{children}</CardBody>
           </Card>
           <Footer />
         </ChakraProvider>

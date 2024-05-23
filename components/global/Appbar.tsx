@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Divider,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -28,7 +29,7 @@ export default function Appbar() {
   return (
     <Box className="cursor-pointer">
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
+        className="bg-gray-50"
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
@@ -196,13 +197,12 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack
-      bg={useColorModeValue('white', 'gray.800')}
-      p={4}
-      display={{ md: 'none' }}
-    >
-      {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+    <Stack className="bg-gray-800" p={4} display={{ md: 'none' }}>
+      {NAV_ITEMS.map((navItem, index, self) => (
+        <>
+          <MobileNavItem key={navItem.label} {...navItem} />
+          {self.length !== index + 1 && <Divider />}
+        </>
       ))}
     </Stack>
   );
@@ -225,10 +225,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: 'none',
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}
-        >
+        <Text className="text-gray-200" fontWeight={600}>
           {label}
         </Text>
         {children && (
