@@ -74,10 +74,6 @@ export const categorizeTag = (tag: string) => {
 };
 
 export const internCardColor = (index: number) => {
-  const colors = [
-    '#B1ECFF',
-    '#FFF0BC',
-    '#FFD5DF',
-  ];
+  const colors = ['#B1ECFF', '#FFF0BC', '#FFD5DF'];
   return colors[index % colors.length];
-}
+};
