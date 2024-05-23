@@ -21,7 +21,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ data }) => (
     className="timeline-item"
     onClick={() => {
       if (data.link) {
-        window.open(data.link.url, '_blank');
+        window.open(data.link.url);
       }
     }}
   >
