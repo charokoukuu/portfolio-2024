@@ -3,7 +3,7 @@ import { Skill } from '@/app/types/Skill.type';
 export const skills: Skill[] = [
   {
     name: 'Next.js',
-    rate: 90,
+    rate: 85,
     image: 'https://cdn.worldvectorlogo.com/logos/next-js.svg',
   },
   {
