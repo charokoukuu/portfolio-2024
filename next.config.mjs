@@ -3,16 +3,6 @@ const nextConfig = {
   output: 'export',
   images: {
     disableStaticImages: true,
-    domains: [
-      'avatars.githubusercontent.com',
-      'upload.wikimedia.org',
-      'protopedia.net',
-      'cdn.qiita.com',
-      'encrypted-tbn0.gstatic.com',
-      'tech-lab.sios.jp',
-      'cdn.iconscout.com',
-      'w7.pngwing.com',
-    ],
   },
 };
 
