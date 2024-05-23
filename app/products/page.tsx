@@ -13,7 +13,7 @@ const Products: React.FC = async () => {
     .sort((a, b) => b.releaseAt.localeCompare(a.releaseAt));
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <H1>Products</H1>
       <div className="mx-auto grid w-[90%] justify-center gap-x-2.5 sm:grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] sm:gap-y-3">
         {uniqueData.map((item) => (
@@ -27,7 +27,7 @@ const Products: React.FC = async () => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
