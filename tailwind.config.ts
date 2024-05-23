@@ -14,8 +14,10 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'custom-gradient':
           'linear-gradient(-90deg, rgba(0,0,0,0) 17%, #000000 100%)',
-        'shiny-gold': 'linear-gradient(261deg, #d4af37 -14.11%, #fceabb 30%, #ffffff 50%, #fceabb 70%, #d4af37 89.75%)',
-        'shiny-silver': 'linear-gradient(261deg, #c0c0c0 -14.11%, #e0e0e0 30%, #ffffff 50%, #e0e0e0 70%, #c0c0c0 89.75%)'
+        'shiny-gold':
+          'linear-gradient(261deg, #d4af37 -14.11%, #fceabb 30%, #ffffff 50%, #fceabb 70%, #d4af37 89.75%)',
+        'shiny-silver':
+          'linear-gradient(261deg, #c0c0c0 -14.11%, #e0e0e0 30%, #ffffff 50%, #e0e0e0 70%, #c0c0c0 89.75%)',
       },
     },
   },
