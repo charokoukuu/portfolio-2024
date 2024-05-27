@@ -23,9 +23,9 @@ export default function Head() {
       />
       <meta
         property="og:image"
-        content="https://portfolio-2024-f4c09.web.app/images/portfolio-thumbnail.jpg"
+        content="https://portfolio-2024-f85ca.web.app/images/portfolio-thumbnail.jpg"
       />
-      <meta property="og:url" content="https://portfolio-2024-f4c09.web.app" />
+      <meta property="og:url" content="https://portfolio-2024-f85ca.web.app" />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta
@@ -38,7 +38,7 @@ export default function Head() {
       />
       <meta
         name="twitter:image"
-        content="https://portfolio-2024-f4c09.web.app/images/portfolio-thumbnail.jpg"
+        content="https://portfolio-2024-f85ca.web.app/images/portfolio-thumbnail.jpg"
       />
     </>
   );

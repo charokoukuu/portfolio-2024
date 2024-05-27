@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: '斎藤陽太 - WEBエンジニア ポートフォリオ',
     description:
       '斎藤陽太のポートフォリオ。Next.js、Vue.js、Nest.js、PostgreSQL、gRPC、GraphQLの専門知識を紹介。Pixiv、チームラボ、Skyでのインターンシップとプロジェクト経験も掲載。',
-    url: 'https://portfolio-2024-f4c09.web.app',
+    url: 'https://portfolio-2024-f85ca.web.app',
     type: 'website',
   },
   twitter: {
