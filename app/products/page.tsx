@@ -15,7 +15,7 @@ const Products: React.FC = async () => {
   return (
     <div className="overflow-x-hidden">
       <H1>Products</H1>
-      <div className="mx-auto grid w-[90%] justify-center gap-x-2.5 sm:grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] sm:gap-y-3">
+      <div className="mx-auto grid w-[90%] justify-center gap-x-2.5 sm:grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] sm:gap-y-1">
         {uniqueData.map((item) => (
           <ProductCard
             key={item.id}
