@@ -23,7 +23,8 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import { useRouter } from 'next/navigation';
-
+import { Dancing_Script } from 'next/font/google';
+export const dancing_script = Dancing_Script({ subsets: ['latin'] });
 export default function Appbar() {
   const { isOpen, onToggle } = useDisclosure();
   return (
@@ -60,12 +61,11 @@ export default function Appbar() {
         >
           <Text
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
             color={'#006C84'}
             onClick={() => {
               window.location.href = '/';
             }}
-            className="font-bold"
+            className={'text-[25px] font-bold ' + dancing_script.className}
           >
             Hinata Saito
           </Text>
