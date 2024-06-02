@@ -1,51 +1,50 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
-interface UseIntersectionObserverProps {
-  root?: Element | null;
+type useIntersectionObServerArgs = {
+  target: React.RefObject<Element>;
   rootMargin?: string;
-  threshold?: number | number[];
-}
-
-const useIntersectionObserver = (
-  {
-    root = null,
-    rootMargin = '0px',
-    threshold = 0,
-  }: UseIntersectionObserverProps,
-  callback: IntersectionObserverCallback
-) => {
-  const [intersectionRatio, setIntersectionRatio] = useState(0);
-  const observer = useRef<IntersectionObserver | null>(null);
-  const observedElement = useRef<Element | null>(null);
-
-  const setObserver = useCallback(
-    (node: Element | null) => {
-      if (observer.current) observer.current.disconnect();
-
-      if (node) {
-        observedElement.current = node;
-        observer.current = new IntersectionObserver(
-          (entries) => {
-            const entry = entries[0];
-            setIntersectionRatio(entry.intersectionRatio);
-            callback(entries, observer.current as IntersectionObserver);
-          },
-          { root, rootMargin, threshold }
-        );
-
-        observer.current.observe(node);
-      }
-    },
-    [root, rootMargin, threshold, callback]
-  );
-
-  useEffect(() => {
-    return () => {
-      if (observer.current) observer.current.disconnect();
-    };
-  }, []);
-
-  return { setObserver, intersectionRatio };
+  threshold?: number[];
 };
 
-export default useIntersectionObserver;
+type useIntersectionObServerResult = {
+  isVisible: boolean;
+  intersectionRatio: number;
+};
+
+const useIntersectionObServer = ({
+  target,
+  rootMargin = '0px',
+}: useIntersectionObServerArgs): useIntersectionObServerResult => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [intersectionRatio, setIntersectionRatio] = useState(0);
+
+  useEffect(() => {
+    if (!target.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]: IntersectionObserverEntry[]) => {
+        setIntersectionRatio(entry.intersectionRatio);
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin, threshold: buildThresholdList() }
+    );
+
+    observer.observe(target.current);
+
+    return () => observer.disconnect();
+  }, [target, rootMargin]);
+
+  return { isVisible, intersectionRatio: intersectionRatio * 100 };
+};
+
+const buildThresholdList = () => {
+  let thresholds = [];
+  let numSteps = 200;
+
+  for (let i = 1; i <= numSteps; i++) {
+    let ratio = i / numSteps;
+    thresholds.push(ratio);
+  }
+  return thresholds;
+};
+export default useIntersectionObServer;
