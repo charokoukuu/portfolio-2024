@@ -24,7 +24,9 @@ import {
 } from '@chakra-ui/icons';
 import { useRouter } from 'next/navigation';
 import { Dancing_Script } from 'next/font/google';
+import React from 'react';
 export const dancing_script = Dancing_Script({ subsets: ['latin'] });
+
 export default function Appbar() {
   const { isOpen, onToggle } = useDisclosure();
   return (
@@ -198,11 +200,11 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack className="bg-gray-800" p={4} display={{ md: 'none' }}>
-      {NAV_ITEMS.map((navItem, index, self) => (
-        <>
+      {NAV_ITEMS.map((navItem, index) => (
+        <React.Fragment key={navItem.label}>
           <MobileNavItem key={navItem.label} {...navItem} />
-          {self.length !== index + 1 && <Divider />}
-        </>
+          {NAV_ITEMS.length !== index + 1 && <Divider />}
+        </React.Fragment>
       ))}
     </Stack>
   );
