@@ -4,6 +4,7 @@ import { Stack, useBreakpointValue } from '@chakra-ui/react';
 import { H1 } from '../global/H1';
 import { ProfileCard } from './ProfileCard';
 import { SkillCard } from './SkillCard';
+import { PR } from './PR';
 export const Profile = () => {
   return (
     <>
@@ -15,9 +16,8 @@ export const Profile = () => {
         alignItems={'center'}
       >
         <ProfileCard />
-        <SkillCard name={''} term={''}>
-          aaa
-        </SkillCard>
+        <SkillCard />
+        <PR />
       </Stack>
     </>
   );
