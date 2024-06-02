@@ -1,6 +1,4 @@
-import { Box, Divider, SimpleGrid, Text } from '@chakra-ui/react';
-import { SkillContent } from './SkillContent';
-import { skills } from '@/lib/store/skill';
+import { Box, Divider, Text } from '@chakra-ui/react';
 
 export const PR = () => {
   return (
