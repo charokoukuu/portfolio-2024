@@ -15,6 +15,7 @@ export const SkillCard = () => {
               name={item.name}
               rate={item.rate}
               image={item.image}
+              period={item.period}
             />
           ))}
         </SimpleGrid>

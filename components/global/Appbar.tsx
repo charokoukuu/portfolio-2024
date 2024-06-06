@@ -67,7 +67,7 @@ export default function Appbar() {
             onClick={() => {
               window.location.href = '/';
             }}
-            className={'text-[25px] font-bold ' + dancing_script.className}
+            className={'p-0 text-[25px] font-bold ' + dancing_script.className}
           >
             Hinata Saito
           </Text>
