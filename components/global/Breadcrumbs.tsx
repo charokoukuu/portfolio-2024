@@ -1,7 +1,7 @@
 'use client';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 interface Props {
   className?: string;
@@ -9,17 +9,23 @@ interface Props {
 const Breadcrumbs = (props: Props) => {
   const pathname = usePathname();
   const pathnames = pathname.split('/').filter((x) => x);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
+  const title = searchParams.get('title');
   const paths = [
     {
       path: '/',
       breadcrumbName: 'HOME',
     },
     {
+      path: '/projects',
+      breadcrumbName: 'PROJECTS',
+    },
+    {
       path: '/products',
       breadcrumbName: 'PRODUCTS',
     },
-
     {
       path: '/contact',
       breadcrumbName: 'CONTACT',
@@ -41,7 +47,7 @@ const Breadcrumbs = (props: Props) => {
             return (
               <BreadcrumbItem key={item}>
                 <BreadcrumbLink href={currentPath?.path}>
-                  {currentPath?.breadcrumbName}
+                  {currentPath ? currentPath.breadcrumbName : title}
                 </BreadcrumbLink>
               </BreadcrumbItem>
             );

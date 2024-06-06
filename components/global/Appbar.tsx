@@ -282,6 +282,10 @@ const NAV_ITEMS: Array<NavItem> = [
     href: '/',
   },
   {
+    label: 'PROJECTS',
+    href: '/projects',
+  },
+  {
     label: 'PRODUCTS',
     href: '/products',
   },

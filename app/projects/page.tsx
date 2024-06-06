@@ -4,11 +4,11 @@ import BgCard from '@/components/global/BgCard';
 import { H1 } from '@/components/global/H1_';
 import { uniqueYears } from '@/lib/utils/util';
 import ChangeColorText from '@/components/global/ChangeColorText';
-import Card from '@/components/job/card';
+import Card from '@/components/projects/card';
 
 export const dynamic = 'force-static';
 
-const Jobs = async () => {
+const Projects = async () => {
   const staticPostList = await PostService.getList();
   const dateList = staticPostList.map((post) => post.date);
   return (
@@ -28,7 +28,7 @@ const Jobs = async () => {
                     .map((post) => {
                       return (
                         <div key={post.id}>
-                          <Card id={post.id}>
+                          <Card id={post.id} title={post.title}>
                             <img
                               src={post.featuredImage.node.link}
                               alt={post.title}
@@ -53,4 +53,4 @@ const Jobs = async () => {
   );
 };
 
-export default Jobs;
+export default Projects;
