@@ -2,6 +2,7 @@
 
 import { Text, Card, CardBody, Box, Divider } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
+import { CategoryLabel } from '../global/CategoryLabel';
 
 interface Props {
   id: number;
@@ -24,7 +25,7 @@ export const ProductCard = (props: Props) => {
   return (
     <Box m="6">
       <Card
-        className="sm:[363px] m-auto h-full w-[90vw] cursor-pointer transition-transform hover:scale-105 hover:bg-gray-200 sm:w-[400px]"
+        className="m-auto h-full w-[90vw] cursor-pointer transition-transform hover:scale-105 hover:bg-gray-200 sm:w-[363px]"
         onClick={handleClick}
         style={{
           borderRadius: '7px',
@@ -41,16 +42,10 @@ export const ProductCard = (props: Props) => {
               {props.name}
             </Text>
             {props.category && (
-              <Box
-                style={{
-                  background: props.category.color,
-                }}
-                className="flex h-[25px] w-[90px] rounded-2xl bg-gradient-to-b"
-              >
-                <Text className="m-auto flex  justify-center text-center text-sm font-bold text-white">
-                  {props.category.name}
-                </Text>
-              </Box>
+              <CategoryLabel
+                name={props.category.name}
+                color={props.category.color}
+              />
             )}
           </div>
           <Divider className="mb-3" />

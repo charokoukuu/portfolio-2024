@@ -14,7 +14,7 @@ const Projects = async () => {
   return (
     <div className="flex flex-col items-center  text-black">
       <BgCard>
-        <div className="m-auto flex flex-col items-center justify-center sm:w-[360px] lg:w-[85%]">
+        <div className="m-auto flex flex-col items-center justify-center sm:w-[85%]">
           <H1>開発実績</H1>
           {uniqueYears(dateList).map((year) => {
             return (
@@ -38,7 +38,9 @@ const Projects = async () => {
                             <ChangeColorText>
                               {post.categories.edges[0].node.name}
                             </ChangeColorText>
-                            <div className="text-[23px]">{post.title}</div>
+                            <div className="text-xl text-[#707070]">
+                              {post.title}
+                            </div>
                           </Card>
                         </div>
                       );
