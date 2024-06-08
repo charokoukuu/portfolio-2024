@@ -24,6 +24,7 @@ jobs:
           NEXT_PUBLIC_PROTOPEDIA_PAGE_ENDPOINT: ${{ secrets.NEXT_PUBLIC_PROTOPEDIA_PAGE_ENDPOINT }}
           NEXT_PUBLIC_ACHIEVEMENT_ENDPOINT: ${{ secrets.NEXT_PUBLIC_ACHIEVEMENT_ENDPOINT }}
           NEXT_PUBLIC_CONTACT_API_ENDPOINT: ${{ secrets.NEXT_PUBLIC_CONTACT_API_ENDPOINT }}
+          WP_ENDPOINT: ${{ secrets.WP_ENDPOINT }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -34,6 +35,6 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" -X POST -d '{
               "content": "デプロイが完了しました！",
-              "username": "ビルドくん",
-              "avatar_url": "https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f85ca.appspot.com/o/DALL%C2%B7E%202024-05-22%2012.20.08%20-%20A%20cute%20robot%20in%20Japanese%20anime%20style.%20The%20robot%20has%20large%2C%20expressive%20eyes%2C%20a%20small%2C%20friendly%20smile%2C%20and%20a%20sleek%2C%20rounded%20body%20with%20soft%20edges.%20It%20fea.webp?alt=media&token=ac26ee2c-8edb-47ef-83fa-b59a86ecd59c"
+              "username": "ビルドちゃん",
+              "avatar_url": "https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f85ca.appspot.com/o/DALL%C2%B7E%202024-06-08%2018.05.38%20-%20A%20cute%20anime-style%20robot%20with%20a%20small%2C%20rounded%20body.%20The%20robot%20has%20a%20metallic%20sheen%20with%20soft%20pastel%20colors.%20Its%20head%20features%20large%2C%20sparkling%20round%20.webp?alt=media&token=bc9ecd00-0408-413a-9915-9330255caf94"
           }' ${{ secrets.NEXT_PUBLIC_CONTACT_API_ENDPOINT }}
