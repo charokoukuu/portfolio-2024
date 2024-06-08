@@ -1,5 +1,5 @@
-import { Wordpress } from "@/app/types/wordpress.type";
-import RepositoryFactory from "../repositories/RepositoryFactory";
+import { Wordpress } from '@/app/types/wordpress.type';
+import RepositoryFactory from '../repositories/RepositoryFactory';
 
 class PostService {
   static async getList(): Promise<Wordpress[]> {

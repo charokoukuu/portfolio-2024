@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
 interface Props {
   children?: React.ReactNode;
 }
 
 const ColorLabel = [
-  { name: "WEBアプリ", color: "#FF7A00" },
-  { name: "LIFF APP", color: "#00CB42" },
-  { name: "HARDWARE", color: "#7000FF" },
+  { name: 'WEBアプリ', color: '#FF7A00' },
+  { name: 'LIFF APP', color: '#00CB42' },
+  { name: 'HARDWARE', color: '#7000FF' },
 ];
 const ChangeColorText = ({ children }: Props) => {
   return (
