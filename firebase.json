@@ -24,7 +24,7 @@
         "destination": "/contact.html"
       },
       {
-        "source": "**",
+        "source": "/",
         "destination": "/index.html"
       }
     ]
