@@ -4,6 +4,7 @@ import PostService from '@/lib/connect/wordpress/serivces/PostService';
 export const dynamic = 'force-static';
 
 export const dynamicParams = true;
+
 interface Props {
   params: { id: string };
 }
@@ -14,14 +15,26 @@ interface Post {
   content: string;
 }
 
+// generateStaticParams 関数を修正
 export const generateStaticParams = async (): Promise<{ id: string }[]> => {
-  const staticPostList = await PostService.getList();
-  return staticPostList.map((post: Post) => ({ id: post.id }));
+  try {
+    const staticPostList = await PostService.getList();
+    return staticPostList.map((post: Post) => ({ id: post.id }));
+  } catch (error) {
+    console.error('Error fetching post list:', error);
+    return [];
+  }
 };
 
-const fetchPostById = async (id: string) => {
-  const staticPostList = await PostService.getList();
-  return staticPostList.find((post) => post.id === decodeURIComponent(id));
+// fetchPostById 関数を修正
+const fetchPostById = async (id: string): Promise<Post | undefined> => {
+  try {
+    const staticPostList = await PostService.getList();
+    return staticPostList.find((post) => post.id === decodeURIComponent(id));
+  } catch (error) {
+    console.error('Error fetching post by ID:', error);
+    return undefined;
+  }
 };
 
 const ProjectDetail: React.FC<Props> = async ({ params }) => {
