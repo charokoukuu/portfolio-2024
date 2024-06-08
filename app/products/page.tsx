@@ -3,6 +3,7 @@ import { ProductCard } from '@/components/product/ProductCard';
 import { getProtopedia } from '@/lib/connect/protopedia';
 import { addEllipsis, categorizeTag } from '@/lib/utils/util';
 export const dynamic = 'force-static';
+
 const Products: React.FC = async () => {
   const data = await getProtopedia();
 

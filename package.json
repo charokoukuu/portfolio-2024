@@ -8,6 +8,7 @@
     "deploy": "npm run build && firebase deploy",
     "deploy:sphyrna": "npm run build && scp -r ./out/* saito@sphyrna.rd.oit.ac.jp:public_html/",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },

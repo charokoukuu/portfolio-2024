@@ -1,6 +1,7 @@
 import { TimelineData } from '@/app/types/Timeline.type';
 import { TimelineItem } from './TimelineItem';
 import { getAchievement } from '@/lib/connect/achievement';
+export const dynamic = 'force-static';
 
 export const Timeline = async () => {
   const timelineData: TimelineData[] = await getAchievement();

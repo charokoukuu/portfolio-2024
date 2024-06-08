@@ -77,3 +77,9 @@ export const internCardColor = (index: number) => {
   const colors = ['#B1ECFF', '#FFF0BC', '#FFD5DF'];
   return colors[index % colors.length];
 };
+
+export const uniqueYears = (dates: string[]) => {
+  return Array.from(
+    new Set(dates.map((date) => new Date(date).getFullYear()))
+  ).sort((a, b) => b - a);
+};

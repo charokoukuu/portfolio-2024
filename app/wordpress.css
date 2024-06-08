@@ -1,0 +1,130 @@
+@media screen and (min-width: 1024px) {
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+    letter-spacing: 0.025em;
+    margin-bottom: 0.5rem;
+    margin-top: 40px;
+    color: #006c84;
+    border-style: solid;
+    border-width: 0 0 0 7px;
+    border-color: #006c84;
+    padding-left: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    text-decoration: underline;
+    color: #085aff;
+  }
+
+  img {
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .wp-block-columns {
+    margin-bottom: 3rem;
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 500px;
+  }
+
+  .wp-block-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: disc;
+    line-height: 1.5;
+    padding-inline-start: 1em;
+    list-style-position: inside;
+  }
+
+  .swl-fz {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  p {
+    font-size: 18px;
+    padding: 0px 30px 0px 30px;
+  }
+  li {
+    font-size: 18px;
+    padding: 0px 20px 0px 20px;
+  }
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+    letter-spacing: 0.025em;
+    margin-bottom: 0.5rem;
+    margin-top: 40px;
+    color: #006c84;
+    border-style: solid;
+    border-width: 0 0 0 7px;
+    border-color: #006c84;
+    padding-left: 10px;
+    margin-left: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    text-decoration: underline;
+    color: #085aff;
+  }
+
+  img {
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .wp-block-columns {
+    margin-bottom: 3rem;
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wp-block-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: disc;
+    line-height: 1.5;
+    padding-inline-start: 1em;
+    list-style-position: inside;
+  }
+
+  .swl-fz {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 20px;
+  }
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}

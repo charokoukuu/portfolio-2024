@@ -2,18 +2,18 @@
 
 import { Box, Card, Divider, Text, Tooltip } from '@chakra-ui/react';
 import { ChartCircle } from '../global/MyDoughnutChart';
-import img from 'next/image';
 
 interface Props {
   name: string;
   rate: number;
   image: string;
+  period: string;
 }
 export const SkillContent = (props: Props) => {
   return (
     <Tooltip
       key={props.name}
-      label={`${props.name} - ${props.rate}%`}
+      label={`${props.name} - ${props.period}`}
       aria-label={`${props.name} skill level`}
     >
       <Card

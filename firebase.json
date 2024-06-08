@@ -1,7 +1,11 @@
 {
   "hosting": {
     "public": "out",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
       {
         "source": "/_next/static/*",
@@ -16,11 +20,15 @@
         "destination": "/products.html"
       },
       {
+        "source": "/projects",
+        "destination": "/projects.html"
+      },
+      {
         "source": "/contact",
         "destination": "/contact.html"
       },
       {
-        "source": "/",
+        "source": "**",
         "destination": "/index.html"
       }
     ]
