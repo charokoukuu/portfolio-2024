@@ -107,7 +107,7 @@ export default function Appbar() {
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue('gray.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const linkHoverColor = useColorModeValue('red.700', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
   const router = useRouter();
   return (
@@ -120,7 +120,7 @@ const DesktopNav = () => {
                 className="cursor-pointer"
                 p={2}
                 onClick={() => {
-                  router.push(navItem.href ?? '#');
+                  window.location.href = navItem.href ?? '/';
                 }}
                 fontSize={'sm'}
                 fontWeight={500}

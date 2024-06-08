@@ -12,8 +12,8 @@ interface Props {
 const Breadcrumbs: React.FC<Props> = (props: Props) => {
   const pathname = usePathname();
   const pathnames = pathname.split('/').filter((x) => x);
-  const searchParams = useSearchParams();
-  const title = searchParams.get('title');
+  // const searchParams = useSearchParams();
+  // const title = searchParams.get('title');
 
   const paths = [
     {
@@ -49,7 +49,8 @@ const Breadcrumbs: React.FC<Props> = (props: Props) => {
             return (
               <BreadcrumbItem key={item}>
                 <BreadcrumbLink href={currentPath?.path}>
-                  {currentPath ? currentPath.breadcrumbName : title}
+                  {currentPath && currentPath.breadcrumbName}
+                  {/* {currentPath ? currentPath.breadcrumbName : title} */}
                 </BreadcrumbLink>
               </BreadcrumbItem>
             );

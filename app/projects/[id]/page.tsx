@@ -4,7 +4,7 @@ import PostService from '@/lib/connect/wordpress/serivces/PostService';
 export const dynamic = 'force-static';
 
 export const dynamicParams = true;
-interface HomeProps {
+interface Props {
   params: { id: string };
 }
 
@@ -24,7 +24,7 @@ const fetchPostById = async (id: string) => {
   return staticPostList.find((post) => post.id === decodeURIComponent(id));
 };
 
-const Home: React.FC<HomeProps> = async ({ params }) => {
+const ProjectDetail: React.FC<Props> = async ({ params }) => {
   const post = await fetchPostById(params.id);
 
   return (
@@ -43,4 +43,4 @@ const Home: React.FC<HomeProps> = async ({ params }) => {
   );
 };
 
-export default Home;
+export default ProjectDetail;
