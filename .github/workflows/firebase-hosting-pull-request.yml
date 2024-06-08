@@ -20,6 +20,7 @@ jobs:
           NEXT_PUBLIC_PROTOPEDIA_PAGE_ENDPOINT: ${{ secrets.NEXT_PUBLIC_PROTOPEDIA_PAGE_ENDPOINT }}
           NEXT_PUBLIC_ACHIEVEMENT_ENDPOINT: ${{ secrets.NEXT_PUBLIC_ACHIEVEMENT_ENDPOINT }}
           NEXT_PUBLIC_CONTACT_API_ENDPOINT: ${{ secrets.NEXT_PUBLIC_CONTACT_API_ENDPOINT }}
+          WP_ENDPOINT: ${{ secrets.WP_ENDPOINT }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
