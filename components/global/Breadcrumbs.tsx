@@ -1,18 +1,20 @@
 'use client';
+
+import React, { Suspense } from 'react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 interface Props {
   className?: string;
 }
-const Breadcrumbs = (props: Props) => {
+
+const Breadcrumbs: React.FC<Props> = (props: Props) => {
   const pathname = usePathname();
   const pathnames = pathname.split('/').filter((x) => x);
-  const router = useRouter();
   const searchParams = useSearchParams();
-
   const title = searchParams.get('title');
+
   const paths = [
     {
       path: '/',
