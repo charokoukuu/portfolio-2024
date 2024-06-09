@@ -12,7 +12,21 @@
     border-color: #006c84;
     padding-left: 10px;
   }
-
+  h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 2rem;
+    letter-spacing: 0.025em;
+    margin-bottom: 0.5rem;
+    margin-top: 40px;
+    padding-left: 10px;
+  }
+  ul {
+    margin: 10px 0;
+  }
+  li {
+    margin: 3px 0px;
+  }
   a {
     text-decoration: none;
     text-decoration: underline;
