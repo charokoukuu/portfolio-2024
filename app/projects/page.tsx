@@ -15,8 +15,8 @@ const Projects = async () => {
   return (
     <div className="flex flex-col items-center  text-black">
       <BgCard>
-        <div className="m-auto flex w-[90%] flex-col items-center justify-center sm:w-[85%]">
-          <H1>Projects</H1>
+        <div className="m-auto flex flex-col items-center justify-center sm:w-[85%]">
+          <H1 className="w-[90%]">Projects</H1>
           {uniqueYears(dateList).map((year) => {
             return (
               <div key={year} className="w-[100%]">
