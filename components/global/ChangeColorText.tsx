@@ -1,26 +1,29 @@
 'use client';
 
+import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
 
 interface Props {
-  children?: React.ReactNode;
+  name: string;
 }
 
 const ColorLabel = [
-  { name: 'WEBアプリ', color: '#FF7A00' },
-  { name: 'LIFF APP', color: '#00CB42' },
-  { name: 'HARDWARE', color: '#7000FF' },
+  { name: '案件', color: '#FF7A00' },
+  { name: 'サークル', color: '#006C84' },
+  { name: '個人', color: '#7000FF' },
 ];
-const ChangeColorText = ({ children }: Props) => {
+const ChangeColorText = ({ name }: Props) => {
   return (
-    <div
-      className="text-[17px] font-bold"
+    <Box
       style={{
-        color: ColorLabel.find((label) => label.name === children)?.color,
+        background: ColorLabel.filter((item) => item.name === name)[0].color,
       }}
+      className="flex h-[25px] w-[80px] rounded-2xl"
     >
-      {children}
-    </div>
+      <div className="m-auto text-center text-sm font-bold text-white">
+        {name}
+      </div>
+    </Box>
   );
 };
 

@@ -5,6 +5,7 @@ import { H1 } from '@/components/global/H1_';
 import { uniqueYears } from '@/lib/utils/util';
 import ChangeColorText from '@/components/global/ChangeColorText';
 import Card from '@/components/projects/card';
+import { Divider } from '@chakra-ui/react';
 
 export const dynamic = 'force-static';
 
@@ -29,16 +30,33 @@ const Projects = async () => {
                       return (
                         <div key={post.id}>
                           <Card id={post.id} title={post.title}>
-                            <img
-                              src={post.featuredImage.node.link}
-                              alt={post.title}
-                              width={171}
-                              height={330}
+                            <div className="relative h-[330px]">
+                              <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                                {post.categories.edges.some(
+                                  (item) => item.node.name === 'PC'
+                                ) ? (
+                                  <img
+                                    src={post.featuredImage.node.link}
+                                    alt={post.title}
+                                    className="w-full"
+                                  />
+                                ) : (
+                                  <img
+                                    src={post.featuredImage.node.link}
+                                    alt={post.title}
+                                    className="h-[330px]"
+                                  />
+                                )}
+                              </div>
+                            </div>
+                            <ChangeColorText
+                              name={
+                                post.categories.edges.filter(
+                                  (item) => item.node.name !== 'PC'
+                                )[0].node.name
+                              }
                             />
-                            <ChangeColorText>
-                              {post.categories.edges[0].node.name}
-                            </ChangeColorText>
-                            <div className="text-xl text-[#707070]">
+                            <div className="py-2 text-lg text-[#707070]">
                               {post.title}
                             </div>
                           </Card>
