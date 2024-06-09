@@ -56,7 +56,7 @@ const Projects = async () => {
                                 )[0].node.name
                               }
                             />
-                            <div className="py-2 text-lg text-[#707070]">
+                            <div className="py-2 text-xl font-bold text-gray-600">
                               {post.title}
                             </div>
                           </Card>
