@@ -1,7 +1,7 @@
 import React from 'react';
 import PostService from '@/lib/connect/wordpress/serivces/PostService';
 import BgCard from '@/components/global/BgCard';
-import { H1 } from '@/components/global/H1_';
+import { H1 } from '@/components/global/H1';
 import { uniqueYears } from '@/lib/utils/util';
 import ChangeColorText from '@/components/global/ChangeColorText';
 import Card from '@/components/projects/card';
@@ -16,7 +16,7 @@ const Projects = async () => {
     <div className="flex flex-col items-center  text-black">
       <BgCard>
         <div className="m-auto flex flex-col items-center justify-center sm:w-[85%]">
-          <H1>開発実績</H1>
+          <H1>Projects</H1>
           {uniqueYears(dateList).map((year) => {
             return (
               <div key={year} className="w-[100%]">
