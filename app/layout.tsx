@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Card, CardBody, ChakraProvider, Text } from '@chakra-ui/react';
+import { Card, CardBody, ChakraProvider } from '@chakra-ui/react';
 import Appbar from '@/components/global/Appbar';
 import Breadcrumbs from '@/components/global/Breadcrumbs';
 import { Footer } from '@/components/global/Footer';
@@ -19,14 +19,28 @@ export const metadata: Metadata = {
     title: '斎藤陽太 - WEBエンジニア ポートフォリオ',
     description:
       '斎藤陽太のポートフォリオ。Next.js、Vue.js、Nest.js、PostgreSQL、gRPC、GraphQLの専門知識を紹介。Pixiv、チームラボ、Skyでのインターンシップとプロジェクト経験も掲載。',
-    url: 'https://portfolio-2024-f85ca.web.app',
+    url: 'https://portfolio.run-ticket.com/',
     type: 'website',
+    images: [
+      {
+        url: 'https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f85ca.appspot.com/o/ogp.png?alt=media&token=a5700aa2-a409-4ee6-a969-61c5e4d64122',
+        width: 1200,
+        height: 630,
+        alt: '斎藤陽太のポートフォリオ OGPイメージ',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: '斎藤陽太 - WEBエンジニア ポートフォリオ',
     description:
       '斎藤陽太のポートフォリオ。Next.js、Vue.js、Nest.js、PostgreSQL、gRPC、GraphQLの専門知識を紹介。Pixiv、チームラボ、Skyでのインターンシップとプロジェクト経験も掲載。',
+    images: [
+      {
+        url: 'https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f85ca.appspot.com/o/ogp.png?alt=media&token=a5700aa2-a409-4ee6-a969-61c5e4d64122',
+        alt: '斎藤陽太のポートフォリオ OGPイメージ',
+      },
+    ],
   },
 };
 
