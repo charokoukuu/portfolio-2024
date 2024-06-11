@@ -15,7 +15,6 @@ interface Post {
   content: string;
 }
 
-// generateStaticParams 関数を修正
 export const generateStaticParams = async (): Promise<{ id: string }[]> => {
   try {
     const staticPostList = await PostService.getList();
@@ -26,7 +25,6 @@ export const generateStaticParams = async (): Promise<{ id: string }[]> => {
   }
 };
 
-// fetchPostById 関数を修正
 const fetchPostById = async (id: string): Promise<Post | undefined> => {
   try {
     const staticPostList = await PostService.getList();

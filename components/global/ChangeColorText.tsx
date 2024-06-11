@@ -11,6 +11,7 @@ const ColorLabel = [
   { name: '案件', color: '#FF7A00' },
   { name: 'サークル', color: '#006C84' },
   { name: '個人', color: '#7000FF' },
+  { name: 'ハッカソン', color: '#7000FF' },
 ];
 const ChangeColorText = ({ name }: Props) => {
   return (
