@@ -21,6 +21,7 @@ export const categorizeTag = (tag: string) => {
     'Node.js',
     'Express',
     'Firebase',
+    "Vue.js",
   ];
   const electronicsTags = [
     'arduino',
