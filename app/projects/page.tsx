@@ -53,7 +53,7 @@ const Projects = async () => {
                               name={
                                 post.categories.edges.filter(
                                   (item) => item.node.name !== 'PC'
-                                )[0].node.name
+                                )[0]?.node.name ?? ''
                               }
                             />
                             <div className="py-2 text-xl font-bold text-gray-600">
