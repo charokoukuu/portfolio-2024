@@ -75,9 +75,26 @@ export const categorizeTag = (tag: string) => {
 };
 
 export const internCardColor = (index: number) => {
-  const colors = ['#B1ECFF', '#FFF0BC', '#FFD5DF'];
+  const colors = ['#0096FA', '#F2CF63', '#18A2D9', "#0477BF", "#000"];
   return colors[index % colors.length];
 };
+
+export const internTitleCardColor = (index: number) => {
+  const colors = ['#fff', '#006C84', '#fff', "#fff", "#fff"];
+  return colors[index % colors.length];
+};
+
+export const internTextCardColor = (index: number) => {
+  const colors = ['#fff', '#000', '#fff', "#fff", "#fff"];
+  return colors[index % colors.length];
+};
+
+export const internDividerColor = (index: number) => {
+  const colors = ['#fff', '#707070', '#fff', "#fff", "#fff"];
+  return colors[index % colors.length];
+};
+
+
 
 export const uniqueYears = (dates: string[]) => {
   return Array.from(

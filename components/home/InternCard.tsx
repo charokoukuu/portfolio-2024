@@ -1,6 +1,11 @@
 import { Box, Divider, Text } from '@chakra-ui/react';
 import Tack from './Tack';
-import { internCardColor } from '@/lib/utils/util';
+import {
+  internCardColor,
+  internDividerColor,
+  internTextCardColor,
+  internTitleCardColor,
+} from '@/lib/utils/util';
 
 interface Props {
   name: string;
@@ -18,10 +23,36 @@ export const InternCard = (props: Props) => {
           backgroundColor: internCardColor(props.index),
         }}
       >
-        <Text className=" mt-4 text-3xl text-[#006C84]">{props.name}</Text>
-        <Text className="text-1xl text-black">{props.term}</Text>
-        <Divider borderColor={'#707070'} mt={2} />
-        <Text className="text-1xl mt-3 text-black">{props.children}</Text>
+        <Text
+          className=" mt-4 text-3xl"
+          style={{
+            color: internTitleCardColor(props.index),
+          }}
+        >
+          {props.name}
+        </Text>
+        <Text
+          className="text-1xl"
+          style={{
+            color: internTextCardColor(props.index),
+          }}
+        >
+          {props.term}
+        </Text>
+        <Divider
+          style={{
+            borderColor: internDividerColor(props.index),
+          }}
+          mt={2}
+        />
+        <Text
+          className="text-1xl mt-3"
+          style={{
+            color: internTextCardColor(props.index),
+          }}
+        >
+          {props.children}
+        </Text>
       </Box>
     </div>
   );

@@ -54,7 +54,9 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ data }) => {
   }, []);
 
   const backgroundStyle =
-    data.category.tag === '優勝' || data.category.tag.includes('優秀賞')
+    data.category.tag === '優勝' ||
+    data.category.tag.includes('優秀賞') ||
+    data.category.tag.includes('トランジスタ技術賞')
       ? 'linear-gradient(261deg,#d4af37 -14.11%,#fceabb 30%,#ffffff 50%,#fceabb 70%, #d4af37 89.75%)'
       : data.category.tag === '準優勝'
         ? 'linear-gradient( 261deg, #c0c0c0 -14.11%, #e0e0e0 30%, #ffffff 50%, #e0e0e0 70%, #c0c0c0 89.75% )'
