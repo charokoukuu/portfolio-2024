@@ -32,7 +32,6 @@ export const internship: InternType[] = [
   {
     name: 'LINEヤフー株式会社',
     term: '2024年8月26日〜2024年10月4日(予定)',
-    content:
-      'comming soon...',
+    content: 'comming soon...',
   },
 ];
