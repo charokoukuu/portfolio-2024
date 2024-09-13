@@ -7,7 +7,7 @@ export const PR = () => {
         <Text className="text-1xl mt-3 text-white">ABOUT ME</Text>
         <Divider borderColor={'#fff'} mt={2} className="mb-3" />
         <Text className="text-sm text-white">
-          私は、WEBサービス制作を得意とする大学院生です。PdMの経験があり、Next.js/Vue.jsを用いた開発が得意です。バックエンドでは、Node.jsフレームワークのExpressやNest.jsを使用し、MongoDBやPostgreSQLを扱っています。最近では、長期インターンにてgRPCやGraphQLを活用し、DIパターンベースのクリーンアーキテクチャを用いたマイクロサービスやBFFの開発に取り組んでいます。
+          私は、WEBサービス制作が得意な大学院生です。PdMの経験があり、特にNext.js/Vue.jsを用いた開発が得意です。バックエンドでは、Node.jsフレームワークのExpressやNest.jsを使用し、MongoDBやPostgreSQLを扱っています。最近では、長期インターンにてgRPCやGraphQLを活用し、DIパターンベースのクリーンアーキテクチャを用いたマイクロサービスやBFFの開発に取り組んでいます。
           また、フリーランスとしてWEBサービスの受託開発を行い、顧客のヒアリングから納品まで全工程を担当した経験があります。ハッカソンなどの技術系イベントにも興味があり、これまでに数々の受賞経験があります。
         </Text>
       </Box>
