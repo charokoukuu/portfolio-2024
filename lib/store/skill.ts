@@ -25,8 +25,7 @@ export const skills: Skill[] = [
     name: 'Go',
     rate: 70,
     period: '1年',
-    image:
-      'https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png',
+    image: 'https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png',
   },
   {
     name: 'PostgreSQL',
