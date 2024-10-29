@@ -32,6 +32,6 @@ export const internship: InternType[] = [
   {
     name: 'LINEヤフー株式会社',
     term: '2024年8月26日〜2024年10月4日 (予定)',
-    content: 'comming soon...',
+    content: 'Yahoo!ショッピングのカート実装およびUI/UX改善。フロントエンドはNext.js、BFFにはNest.js+GraphQLを使用し、大規模サービス開発において、ユーザー視点での開発や問題特定の重要性を学びました。特に、複雑な依存関係とドメインロジックの理解に苦労し、ドキュメント整備やテスト手法の学習を通じて品質向上を図りました。',
   },
 ];
