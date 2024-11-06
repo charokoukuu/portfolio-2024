@@ -40,15 +40,15 @@ export const ProfileCard = () => {
             />
           </a>
           <a
-            href="https://qiita.com/charokoukuu"
+            href="https://beavers-hive.com/"
             className="flex h-20 w-20 items-center justify-center rounded-full bg-white transition-transform hover:scale-105"
           >
             <img
-              src="https://cdn.qiita.com/assets/public/push_notification/image-qiitan-572179a3bbde375850422ea48b2b6272.png"
-              alt="Portfolio"
-              width={80}
-              height={80}
-              className="h-14 w-14"
+              src="https://beavers-hive.com/top.png"
+              alt="Beaver's Hive"
+              width={100}
+              height={100}
+              className="h-16 w-16"
             />
           </a>
         </Box>
