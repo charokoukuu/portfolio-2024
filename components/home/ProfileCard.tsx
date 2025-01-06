@@ -44,7 +44,7 @@ export const ProfileCard = () => {
             className="flex h-20 w-20 items-center justify-center rounded-full bg-white transition-transform hover:scale-105"
           >
             <img
-              src="https://beavers-hive.com/top.png"
+              src="https://beavers-hive.com/logo.png"
               alt="Beaver's Hive"
               width={100}
               height={100}
