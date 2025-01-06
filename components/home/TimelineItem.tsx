@@ -58,7 +58,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({ data }) => {
     data.category.tag.includes('優秀賞') ||
     data.category.tag.includes('トランジスタ技術賞')
       ? 'linear-gradient(261deg,#d4af37 -14.11%,#fceabb 30%,#ffffff 50%,#fceabb 70%, #d4af37 89.75%)'
-      : data.category.tag === '準優勝'
+      : data.category.tag === '準優勝' || data.category.tag === 'はちゅ賞'
         ? 'linear-gradient( 261deg, #c0c0c0 -14.11%, #e0e0e0 30%, #ffffff 50%, #e0e0e0 70%, #c0c0c0 89.75% )'
         : 'linear-gradient(261deg, #cd7f32 -14.11%, #e3a869 30%, #ffffff 50%, #e3a869 70%, #cd7f32 89.75%)';
 
