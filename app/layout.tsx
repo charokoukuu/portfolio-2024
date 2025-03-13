@@ -61,7 +61,7 @@ export default function RootLayout({
           <Breadcrumbs className="my-3 ml-20 hidden text-gray-400 sm:flex" />
           <Card className="m-auto mb-3 mt-1 w-[98vw] sm:mt-3">
             <CardBody className="rounded-lg bg-gray-50">
-              <ParticleSystem />
+              {/* <ParticleSystem /> */}
               {children}
             </CardBody>
           </Card>
