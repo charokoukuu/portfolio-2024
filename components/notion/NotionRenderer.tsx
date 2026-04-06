@@ -89,43 +89,60 @@ function renderTable(block: any): React.ReactNode {
   const hasRowHeader = block.table?.has_row_header;
 
   return (
-    <div key={block.id} className="my-6 overflow-x-auto">
-      <table className="w-full border-collapse rounded-lg border border-cyan-800/30 font-mono text-sm">
-        <tbody>
-          {rows.map((row: any, rowIndex: number) => {
-            const cells = row.table_row?.cells ?? [];
-            const isHeaderRow = hasHeader && rowIndex === 0;
-            const Tag = isHeaderRow ? 'th' : 'td';
+    <div key={block.id} className="relative my-10">
+      {/* Psycho-Pass Style Tech Border Wrapper */}
+      <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-50/50 p-4 sm:p-6 backdrop-blur-sm">
+        {/* HUD Corner Accents */}
+        <div className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-cyan-400" />
+        <div className="absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-cyan-400" />
+        <div className="absolute bottom-0 left-0 h-4 w-4 border-b-2 border-l-2 border-cyan-400" />
+        <div className="absolute bottom-0 right-0 h-4 w-4 border-b-2 border-r-2 border-cyan-400" />
 
-            return (
-              <tr
-                key={row.id}
-                className={
-                  isHeaderRow
-                    ? 'border-b border-cyan-300 bg-slate-50'
-                    : 'border-b border-cyan-300 hover:bg-slate-100'
-                }
-              >
-                {cells.map((cell: any, cellIndex: number) => {
-                  const isRowHeaderCell = hasRowHeader && cellIndex === 0;
-                  const CellTag = isHeaderRow || isRowHeaderCell ? 'th' : Tag;
-                  return (
-                    <CellTag
-                      key={cellIndex}
-                      className={`px-4 py-2.5 text-left ${isHeaderRow || isRowHeaderCell
-                        ? 'font-bold text-cyan-700'
-                        : 'text-slate-700'
-                        }`}
-                    >
-                      {renderRichText(cell)}
-                    </CellTag>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+        {/* Cyberpunk Header Badge Overlay */}
+        <div className="absolute -top-3.5 left-6 border border-cyan-500/50 bg-slate-50 px-3 py-0.5 font-mono text-xs font-bold tracking-widest text-cyan-600">
+          [ SYS::DATA_TABLE ]
+        </div>
+
+        {/* Table inner wrapper for scrolling independent of absolute borders */}
+        <div className="mt-2 w-full overflow-x-auto">
+          <table className="min-w-full border-collapse font-mono text-sm whitespace-nowrap">
+            <tbody>
+              {rows.map((row: any, rowIndex: number) => {
+                const cells = row.table_row?.cells ?? [];
+                const isHeaderRow = hasHeader && rowIndex === 0;
+                const Tag = isHeaderRow ? 'th' : 'td';
+
+                return (
+                  <tr
+                    key={row.id}
+                    className={
+                      isHeaderRow
+                        ? 'border-b-2 border-cyan-400/50 bg-cyan-100/50 font-bold'
+                        : 'border-b border-cyan-300/30 hover:bg-white/40 transition-colors duration-150'
+                    }
+                  >
+                    {cells.map((cell: any, cellIndex: number) => {
+                      const isRowHeaderCell = hasRowHeader && cellIndex === 0;
+                      const CellTag = isHeaderRow || isRowHeaderCell ? 'th' : Tag;
+                      return (
+                        <CellTag
+                          key={cellIndex}
+                          className={`p-3 sm:p-4 text-left ${isHeaderRow || isRowHeaderCell
+                            ? 'font-bold text-cyan-800'
+                            : 'text-slate-700'
+                            }`}
+                        >
+                          {renderRichText(cell)}
+                        </CellTag>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
