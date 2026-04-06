@@ -15,7 +15,7 @@ export default function HeroSection() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="profile.JPG"
-                alt="Saito Hinata"
+                alt="Hinata Saito"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -32,7 +32,7 @@ export default function HeroSection() {
               SUBJECT PROFILE
             </p>
             <GlitchText
-              text="SAITO HINATA"
+              text="HINATA SAITO"
               as="h1"
               className="mb-4 text-3xl font-bold tracking-wider text-cyan-900 sm:text-4xl"
             />

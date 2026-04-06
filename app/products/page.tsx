@@ -8,7 +8,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Products',
-  description: 'プロダクト一覧 — SAITO HINATA Portfolio',
+  description: 'プロダクト一覧 — HINATA SAITO Portfolio',
 };
 
 function categorizeTag(

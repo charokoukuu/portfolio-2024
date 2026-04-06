@@ -9,7 +9,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'プロジェクト一覧 — SAITO HINATA Portfolio',
+  description: 'プロジェクト一覧 — HINATA SAITO Portfolio',
 };
 
 export default async function ProjectsPage() {

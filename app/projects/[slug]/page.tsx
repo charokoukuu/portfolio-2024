@@ -23,7 +23,7 @@ export async function generateMetadata({
   if (!result) return { title: 'Not Found' };
   return {
     title: result.project.title,
-    description: `${result.project.title} — SAITO HINATA Portfolio`,
+    description: `${result.project.title} — HINATA SAITO Portfolio`,
   };
 }
 

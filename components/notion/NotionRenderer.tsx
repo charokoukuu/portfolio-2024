@@ -290,11 +290,22 @@ function renderBlock(block: any, index: number): React.ReactNode {
     case 'image': {
       const src = value.type === 'file' ? value.file.url : value.external?.url;
       const caption = value.caption?.[0]?.plain_text ?? '';
+      // Notion provides width in various fields depending on API/library
+      const widthPercentage = value.format?.block_width;
+      
       return (
-        <figure key={block.id} className="my-6 text-center">
-          <div className="inline-block overflow-hidden rounded-lg">
+        <figure key={block.id} className="my-10 flex flex-col items-center justify-center">
+          <div 
+            className="group relative overflow-hidden rounded-sm"
+            style={widthPercentage ? { width: `${widthPercentage}%` } : { maxWidth: '100%' }}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt={caption || 'Image'} className="w-[300px]" loading="lazy" />
+            <img 
+              src={src} 
+              alt={caption || 'Content Image'} 
+              className="block h-auto max-w-full mx-auto object-contain" 
+              loading="lazy" 
+            />
           </div>
           {caption && (
             <figcaption className="mt-2 text-center font-mono text-xs text-slate-500">

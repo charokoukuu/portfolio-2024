@@ -23,11 +23,11 @@ export default function Header() {
           className="group flex items-center gap-2 font-mono text-lg tracking-widest"
         >
           <span className="text-cyan-700 transition-colors group-hover:text-cyan-600">
-            SAITO
+            HINATA
           </span>
           <span className="text-slate-600">//</span>
           <span className="text-slate-700 transition-colors group-hover:text-cyan-900">
-            HINATA
+            SAITO
           </span>
         </Link>
 
@@ -66,9 +66,8 @@ export default function Header() {
 
       {/* Mobile Nav */}
       <div
-        className={`overflow-hidden border-t border-cyan-300 bg-white/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
-          isOpen ? 'max-h-80' : 'max-h-0 border-t-0'
-        }`}
+        className={`overflow-hidden border-t border-cyan-300 bg-white/95 backdrop-blur-lg transition-all duration-300 md:hidden ${isOpen ? 'max-h-80' : 'max-h-0 border-t-0'
+          }`}
       >
         <nav className="flex flex-col px-4 py-2">
           {NAV_ITEMS.map((item) => (

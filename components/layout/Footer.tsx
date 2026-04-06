@@ -51,7 +51,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="font-mono text-xs text-slate-600">
-            &copy; {year} SAITO HINATA
+            &copy; {year} HINATA SAITO
           </p>
         </div>
       </div>

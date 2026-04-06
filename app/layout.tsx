@@ -20,15 +20,15 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'SAITO HINATA — Portfolio',
-    template: '%s | SAITO HINATA',
+    default: 'HINATA SAITO — Portfolio',
+    template: '%s | HINATA SAITO',
   },
   description:
     '斎藤陽太のポートフォリオ。大阪工業大学大学院 ロボティクス＆デザイン工学研究科所属。Next.js, Vue.js, IoT, AI/MLの専門知識とプロダクト開発経験を紹介。',
   keywords:
     '斎藤陽太, WEBエンジニア, Next.js, Vue.js, Nest.js, IoT, AI, ポートフォリオ',
   openGraph: {
-    title: 'SAITO HINATA — Portfolio',
+    title: 'HINATA SAITO — Portfolio',
     description:
       '斎藤陽太のポートフォリオ。Next.js, Vue.js, IoT, AI/MLの専門知識とプロダクト開発経験を紹介。',
     url: 'https://portfolio.run-ticket.com/',
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
         url: 'https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f85ca.appspot.com/o/ogp.png?alt=media&token=a5700aa2-a409-4ee6-a969-61c5e4d64122',
         width: 1200,
         height: 630,
-        alt: 'SAITO HINATA Portfolio',
+        alt: 'HINATA SAITO Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SAITO HINATA — Portfolio',
+    title: 'HINATA SAITO — Portfolio',
     description:
       '斎藤陽太のポートフォリオ。Next.js, Vue.js, IoT, AI/MLの専門知識とプロダクト開発経験を紹介。',
     images: [

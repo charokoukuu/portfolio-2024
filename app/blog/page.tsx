@@ -9,7 +9,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'ブログ — SAITO HINATA Portfolio',
+  description: 'ブログ — HINATA SAITO Portfolio',
 };
 
 export default async function BlogPage() {
