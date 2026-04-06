@@ -10,9 +10,7 @@ function extractInternship(page: any): Internship {
     period: props.Period?.rich_text?.[0]?.plain_text ?? '',
     description: props.Description?.rich_text?.[0]?.plain_text ?? '',
     techStack:
-      props.TechStack?.multi_select?.map(
-        (s: { name: string }) => s.name
-      ) ?? [],
+      props.TechStack?.multi_select?.map((s: { name: string }) => s.name) ?? [],
     order: props.Order?.number ?? 0,
   };
 }

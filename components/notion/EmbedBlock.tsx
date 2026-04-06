@@ -72,7 +72,9 @@ function getCodePenEmbedUrl(url: string): string {
 }
 
 function getCodeSandboxEmbedUrl(url: string): string {
-  return url.replace('codesandbox.io/s/', 'codesandbox.io/embed/') + '?theme=dark';
+  return (
+    url.replace('codesandbox.io/s/', 'codesandbox.io/embed/') + '?theme=dark'
+  );
 }
 
 function getFigmaEmbedUrl(url: string): string {
@@ -168,7 +170,11 @@ function getTypeLabel(type: EmbedType): string {
   return labels[type];
 }
 
-export default function EmbedBlock({ url, caption, forceEmbed = false }: EmbedBlockProps) {
+export default function EmbedBlock({
+  url,
+  caption,
+  forceEmbed = false,
+}: EmbedBlockProps) {
   const type = getEmbedType(url);
 
   // Non-iframe fallback (external link card) — but if forceEmbed, try iframe anyway

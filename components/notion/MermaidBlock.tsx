@@ -8,7 +8,9 @@ interface MermaidBlockProps {
 
 export default function MermaidBlock({ code }: MermaidBlockProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const renderIdRef = useRef(`mermaid-${Math.random().toString(36).slice(2, 9)}`);
+  const renderIdRef = useRef(
+    `mermaid-${Math.random().toString(36).slice(2, 9)}`
+  );
 
   useEffect(() => {
     const renderMermaid = async () => {
@@ -50,7 +52,10 @@ export default function MermaidBlock({ code }: MermaidBlockProps) {
   return (
     <div className="my-6">
       <div className="overflow-x-auto rounded-lg border border-cyan-400/50 bg-slate-50 p-4">
-        <div ref={containerRef} className="flex justify-center [&_svg]:max-w-full" />
+        <div
+          ref={containerRef}
+          className="flex justify-center [&_svg]:max-w-full"
+        />
       </div>
     </div>
   );

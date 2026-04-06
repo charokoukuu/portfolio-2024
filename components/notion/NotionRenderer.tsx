@@ -2,7 +2,6 @@
 import EmbedBlock from './EmbedBlock';
 import MermaidWrapper from './MermaidWrapper';
 
-
 interface NotionRendererProps {
   blocks: any[];
 }
@@ -14,7 +13,8 @@ function renderRichText(richText: any[]): React.ReactNode {
     let content: React.ReactNode = t.plain_text;
 
     // Apply annotations in order
-    if (t.annotations?.bold) content = <strong key={`b-${i}`}>{content}</strong>;
+    if (t.annotations?.bold)
+      content = <strong key={`b-${i}`}>{content}</strong>;
     if (t.annotations?.italic) content = <em key={`i-${i}`}>{content}</em>;
     if (t.annotations?.strikethrough) content = <s key={`s-${i}`}>{content}</s>;
     if (t.annotations?.underline)
@@ -151,10 +151,16 @@ function renderTable(block: any): React.ReactNode {
 function renderColumnList(block: any): React.ReactNode {
   const columns = block.children ?? [];
   return (
-    <div key={block.id} className="my-4 grid gap-4" style={{ gridTemplateColumns: `repeat(${columns.length}, 1fr)` }}>
+    <div
+      key={block.id}
+      className="my-4 grid gap-4"
+      style={{ gridTemplateColumns: `repeat(${columns.length}, 1fr)` }}
+    >
       {columns.map((column: any) => (
         <div key={column.id}>
-          {column.children?.map((child: any, i: number) => renderBlock(child, i))}
+          {column.children?.map((child: any, i: number) =>
+            renderBlock(child, i)
+          )}
         </div>
       ))}
     </div>
@@ -222,7 +228,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
           {renderRichText(value.rich_text)}
           {block.children && (
             <ul className="mt-1">
-              {block.children.map((child: any, i: number) => renderBlock(child, i))}
+              {block.children.map((child: any, i: number) =>
+                renderBlock(child, i)
+              )}
             </ul>
           )}
         </li>
@@ -237,7 +245,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
           {renderRichText(value.rich_text)}
           {block.children && (
             <ol className="mt-1">
-              {block.children.map((child: any, i: number) => renderBlock(child, i))}
+              {block.children.map((child: any, i: number) =>
+                renderBlock(child, i)
+              )}
             </ol>
           )}
         </li>
@@ -248,13 +258,17 @@ function renderBlock(block: any, index: number): React.ReactNode {
         <div key={block.id} className="mb-1 flex items-start gap-2">
           <span
             className={`mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded border font-mono text-[10px] ${value.checked
-              ? 'border-lime-500/50 bg-lime-500/20 text-lime-400'
-              : 'border-slate-600 text-transparent'
+                ? 'border-lime-500/50 bg-lime-500/20 text-lime-400'
+                : 'border-slate-600 text-transparent'
               }`}
           >
             {value.checked ? '✓' : ''}
           </span>
-          <span className={value.checked ? 'text-slate-400 line-through' : 'text-slate-700'}>
+          <span
+            className={
+              value.checked ? 'text-slate-400 line-through' : 'text-slate-700'
+            }
+          >
             {renderRichText(value.rich_text)}
           </span>
         </div>
@@ -284,12 +298,14 @@ function renderBlock(block: any, index: number): React.ReactNode {
                 </span>
               )}
             </div>
-            <pre className="font-mono text-sm leading-relaxed text-cyan-900 whitespace-pre-wrap break-words">
+            <pre className="whitespace-pre-wrap break-words font-mono text-sm leading-relaxed text-cyan-900">
               <code>{codeText}</code>
             </pre>
           </div>
           {caption && (
-            <p className="mt-1 text-center font-mono text-xs text-slate-500">{caption}</p>
+            <p className="mt-1 text-center font-mono text-xs text-slate-500">
+              {caption}
+            </p>
           )}
         </div>
       );
@@ -298,8 +314,13 @@ function renderBlock(block: any, index: number): React.ReactNode {
     // ── Equation (KaTeX) ──
     case 'equation':
       return (
-        <div key={block.id} className="my-4 overflow-x-auto rounded-lg border border-cyan-400/50 bg-slate-100 p-4 text-center">
-          <code className="font-mono text-sm text-cyan-800">{value.expression}</code>
+        <div
+          key={block.id}
+          className="my-4 overflow-x-auto rounded-lg border border-cyan-400/50 bg-slate-100 p-4 text-center"
+        >
+          <code className="font-mono text-sm text-cyan-800">
+            {value.expression}
+          </code>
         </div>
       );
 
@@ -309,19 +330,26 @@ function renderBlock(block: any, index: number): React.ReactNode {
       const caption = value.caption?.[0]?.plain_text ?? '';
       // Notion provides width in various fields depending on API/library
       const widthPercentage = value.format?.block_width;
-      
+
       return (
-        <figure key={block.id} className="my-10 flex flex-col items-center justify-center">
-          <div 
+        <figure
+          key={block.id}
+          className="my-10 flex flex-col items-center justify-center"
+        >
+          <div
             className="group relative overflow-hidden rounded-sm"
-            style={widthPercentage ? { width: `${widthPercentage}%` } : { maxWidth: '100%' }}
+            style={
+              widthPercentage
+                ? { width: `${widthPercentage}%` }
+                : { maxWidth: '100%' }
+            }
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src={src} 
-              alt={caption || 'Content Image'} 
-              className="block h-auto max-w-full mx-auto object-contain" 
-              loading="lazy" 
+            <img
+              src={src}
+              alt={caption || 'Content Image'}
+              className="mx-auto block h-auto max-w-full object-contain"
+              loading="lazy"
             />
           </div>
           {caption && (
@@ -335,7 +363,8 @@ function renderBlock(block: any, index: number): React.ReactNode {
 
     // ── Video ──
     case 'video': {
-      const videoUrl = value.type === 'external' ? value.external?.url : value.file?.url;
+      const videoUrl =
+        value.type === 'external' ? value.external?.url : value.file?.url;
       if (!videoUrl) return null;
 
       // If it's a file URL, render as <video>, else use EmbedBlock
@@ -353,7 +382,8 @@ function renderBlock(block: any, index: number): React.ReactNode {
 
     // ── Audio ──
     case 'audio': {
-      const audioUrl = value.type === 'file' ? value.file?.url : value.external?.url;
+      const audioUrl =
+        value.type === 'file' ? value.file?.url : value.external?.url;
       if (!audioUrl) return null;
       return (
         <div key={block.id} className="my-4">
@@ -367,7 +397,8 @@ function renderBlock(block: any, index: number): React.ReactNode {
     // ── File / PDF ──
     case 'file':
     case 'pdf': {
-      const fileUrl = value.type === 'file' ? value.file?.url : value.external?.url;
+      const fileUrl =
+        value.type === 'file' ? value.file?.url : value.external?.url;
       const fileName = value.caption?.[0]?.plain_text || value.name || 'File';
       if (!fileUrl) return null;
 
@@ -375,8 +406,15 @@ function renderBlock(block: any, index: number): React.ReactNode {
         return (
           <div key={block.id} className="my-6">
             <div className="neon-border overflow-hidden rounded-lg">
-              <div className="relative w-full" style={{ paddingTop: '141.42%' /* A4 ratio */ }}>
-                <iframe src={fileUrl} className="absolute inset-0 h-full w-full" title={fileName} />
+              <div
+                className="relative w-full"
+                style={{ paddingTop: '141.42%' /* A4 ratio */ }}
+              >
+                <iframe
+                  src={fileUrl}
+                  className="absolute inset-0 h-full w-full"
+                  title={fileName}
+                />
               </div>
             </div>
           </div>
@@ -405,7 +443,14 @@ function renderBlock(block: any, index: number): React.ReactNode {
     case 'embed': {
       const embedUrl = value.url;
       const caption = value.caption?.[0]?.plain_text ?? '';
-      return <EmbedBlock key={block.id} url={embedUrl} caption={caption} forceEmbed />;
+      return (
+        <EmbedBlock
+          key={block.id}
+          url={embedUrl}
+          caption={caption}
+          forceEmbed
+        />
+      );
     }
 
     case 'bookmark': {
@@ -445,7 +490,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
             {renderRichText(value.rich_text)}
             {block.children && (
               <div className="mt-2">
-                {block.children.map((child: any, i: number) => renderBlock(child, i))}
+                {block.children.map((child: any, i: number) =>
+                  renderBlock(child, i)
+                )}
               </div>
             )}
           </div>
@@ -462,7 +509,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
           {renderRichText(value.rich_text)}
           {block.children && (
             <div className="mt-2">
-              {block.children.map((child: any, i: number) => renderBlock(child, i))}
+              {block.children.map((child: any, i: number) =>
+                renderBlock(child, i)
+              )}
             </div>
           )}
         </blockquote>
@@ -484,7 +533,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
           </summary>
           {block.children && (
             <div className="mt-2 pl-4">
-              {block.children.map((child: any, i: number) => renderBlock(child, i))}
+              {block.children.map((child: any, i: number) =>
+                renderBlock(child, i)
+              )}
             </div>
           )}
         </details>
@@ -499,7 +550,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
       if (block.children) {
         return (
           <div key={block.id}>
-            {block.children.map((child: any, i: number) => renderBlock(child, i))}
+            {block.children.map((child: any, i: number) =>
+              renderBlock(child, i)
+            )}
           </div>
         );
       }
@@ -515,7 +568,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
         <div key={block.id} className="my-2">
           <div className="glass-panel flex items-center gap-2 p-3">
             <span className="text-base">📄</span>
-            <span className="font-mono text-sm text-cyan-300">{value.title}</span>
+            <span className="font-mono text-sm text-cyan-300">
+              {value.title}
+            </span>
           </div>
         </div>
       );
@@ -525,7 +580,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
         <div key={block.id} className="my-2">
           <div className="glass-panel flex items-center gap-2 p-3">
             <span className="text-base">🗃️</span>
-            <span className="font-mono text-sm text-cyan-300">{value.title}</span>
+            <span className="font-mono text-sm text-cyan-300">
+              {value.title}
+            </span>
           </div>
         </div>
       );
@@ -540,7 +597,10 @@ function renderBlock(block: any, index: number): React.ReactNode {
       // Debug: show unknown block types in dev mode
       if (process.env.NODE_ENV === 'development') {
         return (
-          <div key={block.id} className="my-2 rounded border border-yellow-800/30 bg-yellow-950/20 p-2 font-mono text-xs text-yellow-500">
+          <div
+            key={block.id}
+            className="my-2 rounded border border-yellow-800/30 bg-yellow-950/20 p-2 font-mono text-xs text-yellow-500"
+          >
             [Unsupported block: {type}]
           </div>
         );
@@ -589,7 +649,9 @@ export default function NotionRenderer({ blocks }: NotionRendererProps) {
           if (item.type === 'to_do') {
             return (
               <div key={`todo-${index}`} className="my-3">
-                {item.items.map((block: any, i: number) => renderBlock(block, i))}
+                {item.items.map((block: any, i: number) =>
+                  renderBlock(block, i)
+                )}
               </div>
             );
           }

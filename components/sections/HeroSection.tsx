@@ -36,7 +36,7 @@ export default function HeroSection() {
               as="h1"
               className="mb-4 text-3xl font-bold tracking-wider text-cyan-900 sm:text-4xl"
             />
-            <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-950/5 p-6 sm:p-8 backdrop-blur-sm mb-6">
+            <div className="relative mb-6 rounded-sm border border-cyan-500/50 bg-cyan-950/5 p-6 backdrop-blur-sm sm:p-8">
               {/* HUD Corner Accents */}
               <div className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-cyan-400" />
               <div className="absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-cyan-400" />
@@ -49,15 +49,20 @@ export default function HeroSection() {
               </div>
 
               <div className="absolute -bottom-2.5 right-6 hidden border border-cyan-500/30 bg-[#eff2f5] px-2 text-[10px] tracking-widest text-cyan-500 sm:block">
-                SYS.LOG // {Math.random().toString(36).substring(2, 10).toUpperCase()}
+                SYS.LOG //{' '}
+                {Math.random().toString(36).substring(2, 10).toUpperCase()}
               </div>
 
               <div className="space-y-4 text-left font-mono text-[13px] leading-relaxed text-slate-700 sm:text-sm sm:leading-loose">
                 <p>
-                  2026年新卒でLINEヤフー株式会社にソフトウェアエンジニアとして入社。同年、大阪工業大学大学院 ロボティクス＆デザイン工学研究科 博士前期課程 修了。
+                  2026年新卒でLINEヤフー株式会社にソフトウェアエンジニアとして入社。同年、大阪工業大学大学院
+                  ロボティクス＆デザイン工学研究科 博士前期課程 修了。
                 </p>
                 <p>
-                  クライアントからサーバーまで一貫したWebサービス開発が得意です。技術スタックは Next.js / Vue.js に加え、Node.js (NestJS, Express)、MongoDB, PostgreSQL など。最近は gRPC や GraphQL を用いたBFF開発や、クリーンアーキテクチャベースのマイクロサービス設計にも注力しています。
+                  クライアントからサーバーまで一貫したWebサービス開発が得意です。技術スタックは
+                  Next.js / Vue.js に加え、Node.js (NestJS, Express)、MongoDB,
+                  PostgreSQL など。最近は gRPC や GraphQL
+                  を用いたBFF開発や、クリーンアーキテクチャベースのマイクロサービス設計にも注力しています。
                 </p>
                 <p>
                   フリーランスとしての受託開発やPjMの経験も持ち、企画や要件定義から実装・納品まで幅広く担当できます。チーム開発やハッカソンへの参加も好きで、複数の技術系イベントでの受賞歴があります。

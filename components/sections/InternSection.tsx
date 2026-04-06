@@ -11,16 +11,11 @@ export default function InternSection({ internships }: InternSectionProps) {
   return (
     <section className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-5xl">
-        <SectionTitle
-          system="ACCESS_LOG::CAREER_HISTORY"
-          title="Internship"
-        />
+        <SectionTitle system="ACCESS_LOG::CAREER_HISTORY" title="Internship" />
 
         <div className="relative">
           {/* Timeline line */}
-          {internships.length > 0 && (
-            <div className="timeline-line" />
-          )}
+          {internships.length > 0 && <div className="timeline-line" />}
 
           <div className="space-y-6">
             {internships.map((intern) => (
@@ -45,11 +40,7 @@ export default function InternSection({ internships }: InternSectionProps) {
                   {intern.techStack.length > 0 && (
                     <div className="flex flex-wrap gap-1.5">
                       {intern.techStack.map((tech) => (
-                        <SystemBadge
-                          key={tech}
-                          label={tech}
-                          variant="cyan"
-                        />
+                        <SystemBadge key={tech} label={tech} variant="cyan" />
                       ))}
                     </div>
                   )}
@@ -61,8 +52,8 @@ export default function InternSection({ internships }: InternSectionProps) {
           {internships.length === 0 && (
             <div className="glass-panel p-8 text-center">
               <p className="font-mono text-sm text-slate-500">
-                <span className="text-cyan-700">&gt;</span> AWAITING DATA
-                FROM NOTION DATABASE...
+                <span className="text-cyan-700">&gt;</span> AWAITING DATA FROM
+                NOTION DATABASE...
               </p>
             </div>
           )}

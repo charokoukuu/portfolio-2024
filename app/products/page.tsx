@@ -42,9 +42,7 @@ function categorizeTag(
   const isWeb = webTags.some((t) =>
     tag.toLowerCase().includes(t.toLowerCase())
   );
-  const isHw = hwTags.some((t) =>
-    tag.toLowerCase().includes(t.toLowerCase())
-  );
+  const isHw = hwTags.some((t) => tag.toLowerCase().includes(t.toLowerCase()));
 
   if (isWeb && isHw) return { name: 'Hybrid', variant: 'red' };
   if (isWeb) return { name: 'Software', variant: 'cyan' };
@@ -93,10 +91,7 @@ export default async function ProductsPage() {
   return (
     <div className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-5xl">
-        <SectionTitle
-          system="DATABASE::PRODUCT_REGISTRY"
-          title="Products"
-        />
+        <SectionTitle system="DATABASE::PRODUCT_REGISTRY" title="Products" />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => {

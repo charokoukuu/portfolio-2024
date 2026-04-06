@@ -25,12 +25,12 @@ export default function HexagonLoader() {
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="h-3 w-3 rounded-full bg-cyan-400 animate-pulse-neon" />
+          <div className="h-3 w-3 animate-pulse-neon rounded-full bg-cyan-400" />
         </div>
       </div>
 
       {/* Loading Text */}
-      <p className="font-mono text-xs tracking-[0.3em] text-cyan-600 animate-flicker">
+      <p className="animate-flicker font-mono text-xs tracking-[0.3em] text-cyan-600">
         ACCESSING SIBYL SYSTEM...
       </p>
     </div>

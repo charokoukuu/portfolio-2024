@@ -72,7 +72,8 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
         {projects.length === 0 && (
           <div className="glass-panel p-8 text-center">
             <p className="font-mono text-sm text-slate-500">
-              <span className="text-cyan-700">&gt;</span> AWAITING DATA FROM NOTION DATABASE...
+              <span className="text-cyan-700">&gt;</span> AWAITING DATA FROM
+              NOTION DATABASE...
             </p>
           </div>
         )}
