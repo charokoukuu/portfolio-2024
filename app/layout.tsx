@@ -1,24 +1,36 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { JetBrains_Mono, Space_Mono } from 'next/font/google';
 import './globals.css';
-import { Card, CardBody, ChakraProvider } from '@chakra-ui/react';
-import Appbar from '@/components/global/Appbar';
-import Breadcrumbs from '@/components/global/Breadcrumbs';
-import { Footer } from '@/components/global/Footer';
-import { ParticleSystem } from '@/components/global/ParticleSystem';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import ScanlineOverlay from '@/components/layout/ScanlineOverlay';
 
-const inter = Inter({ subsets: ['latin'] });
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+});
+
+const spaceMono = Space_Mono({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-space',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: '斎藤陽太のポートフォリオ',
+  title: {
+    default: 'SAITO HINATA — Portfolio',
+    template: '%s | SAITO HINATA',
+  },
   description:
-    '斎藤陽太のポートフォリオ。Next.js、Vue.js、Nest.js、PostgreSQL、gRPC、GraphQLの専門知識を紹介。Pixiv、チームラボ、Skyでのインターンシップとプロジェクト経験も掲載。',
+    '斎藤陽太のポートフォリオ。大阪工業大学大学院 ロボティクス＆デザイン工学研究科所属。Next.js, Vue.js, IoT, AI/MLの専門知識とプロダクト開発経験を紹介。',
   keywords:
-    '斎藤陽太, WEBエンジニア, Next.js, Vue.js, Nest.js, PostgreSQL, gRPC, GraphQL, ポートフォリオ, インターンシップ, Pixiv, チームラボ, Sky, ハッカソン受賞',
+    '斎藤陽太, WEBエンジニア, Next.js, Vue.js, Nest.js, IoT, AI, ポートフォリオ',
   openGraph: {
-    title: '斎藤陽太 - WEBエンジニア ポートフォリオ',
+    title: 'SAITO HINATA — Portfolio',
     description:
-      '斎藤陽太のポートフォリオ。Next.js、Vue.js、Nest.js、PostgreSQL、gRPC、GraphQLの専門知識を紹介。Pixiv、チームラボ、Skyでのインターンシップとプロジェクト経験も掲載。',
+      '斎藤陽太のポートフォリオ。Next.js, Vue.js, IoT, AI/MLの専門知識とプロダクト開発経験を紹介。',
     url: 'https://portfolio.run-ticket.com/',
     type: 'website',
     images: [
@@ -26,20 +38,17 @@ export const metadata: Metadata = {
         url: 'https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f85ca.appspot.com/o/ogp.png?alt=media&token=a5700aa2-a409-4ee6-a969-61c5e4d64122',
         width: 1200,
         height: 630,
-        alt: '斎藤陽太のポートフォリオ OGPイメージ',
+        alt: 'SAITO HINATA Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '斎藤陽太 - WEBエンジニア ポートフォリオ',
+    title: 'SAITO HINATA — Portfolio',
     description:
-      '斎藤陽太のポートフォリオ。Next.js、Vue.js、Nest.js、PostgreSQL、gRPC、GraphQLの専門知識を紹介。Pixiv、チームラボ、Skyでのインターンシップとプロジェクト経験も掲載。',
+      '斎藤陽太のポートフォリオ。Next.js, Vue.js, IoT, AI/MLの専門知識とプロダクト開発経験を紹介。',
     images: [
-      {
-        url: 'https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f85ca.appspot.com/o/ogp.png?alt=media&token=a5700aa2-a409-4ee6-a969-61c5e4d64122',
-        alt: '斎藤陽太のポートフォリオ OGPイメージ',
-      },
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-2024-f85ca.appspot.com/o/ogp.png?alt=media&token=a5700aa2-a409-4ee6-a969-61c5e4d64122',
     ],
   },
 };
@@ -50,23 +59,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charSet="UTF-8" />
-      </head>
-      <body className={`${inter.className} bg-gray-200`}>
-        <ChakraProvider>
-          <Appbar />
-          <Breadcrumbs className="my-3 ml-20 hidden text-gray-400 sm:flex" />
-          <Card className="m-auto mb-3 mt-1 w-[98vw] sm:mt-3">
-            <CardBody className="rounded-lg bg-gray-50">
-              {/* <ParticleSystem /> */}
-              {children}
-            </CardBody>
-          </Card>
+    <html lang="ja" className="dark">
+      <body
+        className={`${jetbrains.variable} ${spaceMono.variable} font-mono`}
+      >
+        <ScanlineOverlay />
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
           <Footer />
-        </ChakraProvider>
+        </div>
       </body>
     </html>
   );

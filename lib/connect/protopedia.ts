@@ -1,4 +1,4 @@
-import { Protopedia } from '@/app/types/Prototype.type';
+import { Protopedia } from '@/lib/types/prototype';
 
 export const getProtopedia = async () => {
   const response = await fetch(
@@ -8,7 +8,7 @@ export const getProtopedia = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      cache: 'no-cache',
+      next: { revalidate: 3600 },
     }
   );
 
