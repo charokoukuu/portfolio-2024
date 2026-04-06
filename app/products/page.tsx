@@ -57,18 +57,26 @@ function addEllipsis(str: string, limit = 64): string {
 }
 
 async function getProtopedia(): Promise<Protopedia[]> {
+  const endpoint = process.env.NEXT_PUBLIC_PROTOPEDIA_API_ENDPOINT;
+  if (!endpoint || endpoint === 'https://protopedia.net/api/...') return [];
+
   try {
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_PROTOPEDIA_API_ENDPOINT ?? '',
-      {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        next: { revalidate: 3600 },
-      }
-    );
+    const response = await fetch(endpoint, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      next: { revalidate: 3600 },
+    });
     if (!response.ok) return [];
-    return response.json();
-  } catch {
+
+    const contentType = response.headers.get('content-type') ?? '';
+    if (!contentType.includes('application/json')) {
+      console.warn('Protopedia API returned non-JSON response:', contentType);
+      return [];
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to fetch Protopedia products:', error);
     return [];
   }
 }

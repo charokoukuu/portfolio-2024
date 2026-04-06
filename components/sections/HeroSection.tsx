@@ -37,13 +37,13 @@ export default function HeroSection() {
               className="mb-4 text-3xl font-bold tracking-wider text-cyan-50 sm:text-4xl"
             />
             <p className="mb-6 font-mono text-sm leading-relaxed text-slate-400">
-              大阪工業大学大学院
+              LINEヤフー株式会社
               <br />
-              ロボティクス＆デザイン工学研究科
+              ソフトウェアエンジニア
             </p>
 
             {/* Crime Coefficient Display */}
-            <GlassPanel className="inline-block max-w-md p-4">
+            {/* <GlassPanel className="inline-block max-w-md p-4">
               <div className="space-y-2 font-mono text-xs">
                 <div className="flex items-center gap-3">
                   <span className="text-slate-500">CRIME COEFFICIENT:</span>
@@ -68,7 +68,7 @@ export default function HeroSection() {
                   <span className="text-cyan-400">PURE WHITE</span>
                 </div>
               </div>
-            </GlassPanel>
+            </GlassPanel> */}
 
             {/* Social Links */}
             <div className="mt-6 flex justify-center gap-4 sm:justify-start">
