@@ -1,17 +1,64 @@
-import { Achievement } from '@/components/home/Achievement';
-import { Internship } from '@/components/home/Internship';
-import { Profile } from '@/components/home/Profile';
+import HeroSection from '@/components/sections/HeroSection';
+import SkillsSection from '@/components/sections/SkillsSection';
+import InternSection from '@/components/sections/InternSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import ProductsSection from '@/components/sections/ProductsSection';
+import AwardsSection from '@/components/sections/AwardsSection';
+import { getSkills } from '@/lib/notion/skills';
+import { getInternships } from '@/lib/notion/internships';
+import { getProjects } from '@/lib/notion/projects';
+import { getAwards } from '@/lib/notion/awards';
+import { Protopedia } from '@/lib/types/prototype';
 
-export const dynamic = 'force-static';
+export const revalidate = 3600;
 
-const Home: React.FC = () => {
+async function getProtopediaProducts(): Promise<Protopedia[]> {
+  const endpoint = process.env.NEXT_PUBLIC_PROTOPEDIA_API_ENDPOINT;
+  if (!endpoint || endpoint === 'https://protopedia.net/api/...') return [];
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) return [];
+
+    const contentType = response.headers.get('content-type') ?? '';
+    if (!contentType.includes('application/json')) {
+      console.warn('Protopedia API returned non-JSON response:', contentType);
+      return [];
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to fetch Protopedia products:', error);
+    return [];
+  }
+}
+
+export default async function Home() {
+  const [skills, internships, projects, products, awards] = await Promise.all([
+    getSkills(),
+    getInternships(),
+    getProjects(),
+    getProtopediaProducts(),
+    getAwards(),
+  ]);
+
   return (
-    <div>
-      <Profile />
-      <Internship />
-      <Achievement />
-    </div>
+    <>
+      <HeroSection />
+      <div className="section-divider" />
+      <SkillsSection skills={skills} />
+      <div className="section-divider" />
+      <InternSection internships={internships} />
+      <div className="section-divider" />
+      <ProjectsSection projects={projects} />
+      <div className="section-divider" />
+      <ProductsSection products={products} />
+      <div className="section-divider" />
+      <AwardsSection awards={awards} />
+    </>
   );
-};
-
-export default Home;
+}

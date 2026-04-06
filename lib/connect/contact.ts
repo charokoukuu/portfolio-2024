@@ -1,4 +1,8 @@
-import { Form } from '@/app/types/Contact.type';
+export interface Form {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export const postContact = async (content: Form) => {
   const response = await fetch(

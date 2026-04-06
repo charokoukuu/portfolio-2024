@@ -1,15 +1,12 @@
-import { Protopedia } from '@/lib/types/prototype';
+import type { Protopedia } from '@/lib/types/prototype';
 import SectionTitle from '@/components/ui/SectionTitle';
 import GlassPanel from '@/components/ui/GlassPanel';
 import SystemBadge from '@/components/ui/SystemBadge';
-import type { Metadata } from 'next';
+import Link from 'next/link';
 
-export const revalidate = 3600;
-
-export const metadata: Metadata = {
-  title: 'Products',
-  description: 'プロダクト一覧 — HINATA SAITO Portfolio',
-};
+interface ProductsSectionProps {
+  products: Protopedia[];
+}
 
 function categorizeTag(
   tag: string | null
@@ -18,8 +15,6 @@ function categorizeTag(
   const webTags = [
     'webApp',
     'React',
-    '機械学習',
-    'MQTT',
     'Next.js',
     'TypeScript',
     'Node.js',
@@ -30,13 +25,11 @@ function categorizeTag(
   const hwTags = [
     'arduino',
     'IoT',
-    'DCモーター',
-    'ステッピングモーター',
-    '電子工作',
     'M5',
     'SDL',
     'Python',
     'Raspberry Pi',
+    '電子工作',
   ];
 
   const isWeb = webTags.some((t) =>
@@ -52,46 +45,20 @@ function categorizeTag(
   return null;
 }
 
-function addEllipsis(str: string, limit = 64): string {
+function addEllipsis(str: string, limit = 60): string {
   return str.length > limit ? str.substring(0, limit) + '...' : str;
 }
 
-async function getProtopedia(): Promise<Protopedia[]> {
-  const endpoint = process.env.NEXT_PUBLIC_PROTOPEDIA_API_ENDPOINT;
-  if (!endpoint || endpoint === 'https://protopedia.net/api/...') return [];
-
-  try {
-    const response = await fetch(endpoint, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      next: { revalidate: 3600 },
-    });
-    if (!response.ok) return [];
-
-    const contentType = response.headers.get('content-type') ?? '';
-    if (!contentType.includes('application/json')) {
-      console.warn('Protopedia API returned non-JSON response:', contentType);
-      return [];
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error('Failed to fetch Protopedia products:', error);
-    return [];
-  }
-}
-
-export default async function ProductsPage() {
-  const data = await getProtopedia();
-
-  const products = data
+export default function ProductsSection({ products }: ProductsSectionProps) {
+  const uniqueProducts = products
     .filter(
       (item, index, self) => index === self.findIndex((t) => t.id === item.id)
     )
-    .sort((a, b) => b.releaseAt.localeCompare(a.releaseAt));
+    .sort((a, b) => b.releaseAt.localeCompare(a.releaseAt))
+    .slice(0, 6);
 
   return (
-    <div className="px-4 py-16 sm:px-6">
+    <section className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <SectionTitle
           system="DATABASE::PRODUCT_REGISTRY"
@@ -99,7 +66,7 @@ export default async function ProductsPage() {
         />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => {
+          {uniqueProducts.map((product) => {
             const category = categorizeTag(product.tags);
             return (
               <a
@@ -110,7 +77,8 @@ export default async function ProductsPage() {
                 className="group"
               >
                 <GlassPanel className="h-full overflow-hidden transition-transform group-hover:scale-[1.02]">
-                  <div className="relative h-48 overflow-hidden">
+                  {/* Thumbnail */}
+                  <div className="relative h-44 overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={product.image1}
@@ -127,6 +95,8 @@ export default async function ProductsPage() {
                       </div>
                     )}
                   </div>
+
+                  {/* Content */}
                   <div className="p-4">
                     <h3 className="mb-2 font-mono text-sm font-bold text-cyan-900">
                       {product.prototypeNm}
@@ -141,8 +111,16 @@ export default async function ProductsPage() {
           })}
         </div>
 
+        {uniqueProducts.length > 0 && (
+          <div className="mt-8 text-center">
+            <Link href="/products" className="neon-button inline-block">
+              VIEW ALL PRODUCTS →
+            </Link>
+          </div>
+        )}
+
         {products.length === 0 && (
-          <div className="glass-panel p-12 text-center">
+          <div className="glass-panel p-8 text-center">
             <p className="font-mono text-sm text-slate-500">
               <span className="text-cyan-700">&gt;</span> CONNECTING TO
               PROTOPEDIA API...
@@ -150,6 +128,6 @@ export default async function ProductsPage() {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }
