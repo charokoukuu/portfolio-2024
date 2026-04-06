@@ -91,7 +91,7 @@ function renderTable(block: any): React.ReactNode {
   return (
     <div key={block.id} className="relative my-10">
       {/* Psycho-Pass Style Tech Border Wrapper */}
-      <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-50/50 p-4 sm:p-6 backdrop-blur-sm">
+      <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-50/50 p-4 backdrop-blur-sm sm:p-6">
         {/* HUD Corner Accents */}
         <div className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-cyan-400" />
         <div className="absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-cyan-400" />
@@ -105,7 +105,7 @@ function renderTable(block: any): React.ReactNode {
 
         {/* Table inner wrapper for scrolling independent of absolute borders */}
         <div className="mt-2 w-full overflow-x-auto">
-          <table className="min-w-full border-collapse font-mono text-sm whitespace-nowrap">
+          <table className="min-w-full border-collapse whitespace-nowrap font-mono text-sm">
             <tbody>
               {rows.map((row: any, rowIndex: number) => {
                 const cells = row.table_row?.cells ?? [];
@@ -118,19 +118,21 @@ function renderTable(block: any): React.ReactNode {
                     className={
                       isHeaderRow
                         ? 'border-b-2 border-cyan-400/50 bg-cyan-100/50 font-bold'
-                        : 'border-b border-cyan-300/30 hover:bg-white/40 transition-colors duration-150'
+                        : 'border-b border-cyan-300/30 transition-colors duration-150 hover:bg-white/40'
                     }
                   >
                     {cells.map((cell: any, cellIndex: number) => {
                       const isRowHeaderCell = hasRowHeader && cellIndex === 0;
-                      const CellTag = isHeaderRow || isRowHeaderCell ? 'th' : Tag;
+                      const CellTag =
+                        isHeaderRow || isRowHeaderCell ? 'th' : Tag;
                       return (
                         <CellTag
                           key={cellIndex}
-                          className={`p-3 sm:p-4 text-left ${isHeaderRow || isRowHeaderCell
-                            ? 'font-bold text-cyan-800'
-                            : 'text-slate-700'
-                            }`}
+                          className={`p-3 text-left sm:p-4 ${
+                            isHeaderRow || isRowHeaderCell
+                              ? 'font-bold text-cyan-800'
+                              : 'text-slate-700'
+                          }`}
                         >
                           {renderRichText(cell)}
                         </CellTag>
@@ -257,10 +259,11 @@ function renderBlock(block: any, index: number): React.ReactNode {
       return (
         <div key={block.id} className="mb-1 flex items-start gap-2">
           <span
-            className={`mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded border font-mono text-[10px] ${value.checked
+            className={`mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded border font-mono text-[10px] ${
+              value.checked
                 ? 'border-lime-500/50 bg-lime-500/20 text-lime-400'
                 : 'border-slate-600 text-transparent'
-              }`}
+            }`}
           >
             {value.checked ? '✓' : ''}
           </span>
