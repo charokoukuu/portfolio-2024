@@ -11,13 +11,11 @@ export default function Footer() {
           <div className="font-mono text-xs text-slate-500">
             <p className="mb-1">
               <span className="text-cyan-700">&gt;</span> SYSTEM STATUS:{' '}
-              <span className="text-lime-600 font-bold">NOMINAL</span>
+              <span className="font-bold text-lime-600">NOMINAL</span>
             </p>
             <p>
               <span className="text-cyan-700">&gt;</span> UPTIME:{' '}
-              <span className="text-slate-600">
-                {year}.04.06 — ACTIVE
-              </span>
+              <span className="text-slate-600">{year}.04.06 — ACTIVE</span>
             </p>
           </div>
 

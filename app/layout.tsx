@@ -60,9 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="dark">
-      <body
-        className={`${jetbrains.variable} ${spaceMono.variable} font-mono`}
-      >
+      <body className={`${jetbrains.variable} ${spaceMono.variable} font-mono`}>
         <ScanlineOverlay />
         <div className="flex min-h-screen flex-col">
           <Header />

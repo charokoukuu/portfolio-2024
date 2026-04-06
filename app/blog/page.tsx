@@ -60,11 +60,7 @@ export default async function BlogPage() {
                     {post.tags.length > 0 && (
                       <div className="flex flex-wrap gap-1.5">
                         {post.tags.map((tag) => (
-                          <SystemBadge
-                            key={tag}
-                            label={tag}
-                            variant="cyan"
-                          />
+                          <SystemBadge key={tag} label={tag} variant="cyan" />
                         ))}
                       </div>
                     )}
@@ -78,12 +74,11 @@ export default async function BlogPage() {
         {posts.length === 0 && (
           <div className="glass-panel p-12 text-center">
             <p className="font-mono text-sm text-slate-500">
-              <span className="text-cyan-700">&gt;</span> NO BLOG ENTRIES
-              FOUND IN NOTION DATABASE
+              <span className="text-cyan-700">&gt;</span> NO BLOG ENTRIES FOUND
+              IN NOTION DATABASE
             </p>
             <p className="mt-2 font-mono text-xs text-slate-600">
-              Create a Blog database in Notion and configure
-              NOTION_BLOG_DB_ID
+              Create a Blog database in Notion and configure NOTION_BLOG_DB_ID
             </p>
           </div>
         )}

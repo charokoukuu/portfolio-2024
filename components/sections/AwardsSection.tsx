@@ -57,12 +57,15 @@ function isDarkPanel(rank: string): boolean {
 
 export default function AwardsSection({ awards }: AwardsSectionProps) {
   // Group awards by rank
-  const groupedAwards = awards.reduce((acc, award) => {
-    const rank = award.rank || 'Other';
-    if (!acc[rank]) acc[rank] = [];
-    acc[rank].push(award);
-    return acc;
-  }, {} as Record<string, Award[]>);
+  const groupedAwards = awards.reduce(
+    (acc, award) => {
+      const rank = award.rank || 'Other';
+      if (!acc[rank]) acc[rank] = [];
+      acc[rank].push(award);
+      return acc;
+    },
+    {} as Record<string, Award[]>
+  );
 
   // Define display order for grades
   const rankOrder = ['Special', 'Gold', 'Silver', 'Bronze', 'Other'];
@@ -73,16 +76,13 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
   return (
     <section className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-5xl">
-        <SectionTitle
-          system="ACHIEVEMENT_LOG::AWARDS"
-          title="Awards"
-        />
+        <SectionTitle system="ACHIEVEMENT_LOG::AWARDS" title="Awards" />
 
         <div className="mt-8 space-y-16">
           {activeRanks.map((rank) => (
             <div key={rank} className="relative mt-8">
               {/* Psycho-Pass Style Tech Border Wrapper */}
-              <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-950/5 p-6 sm:p-8 backdrop-blur-sm">
+              <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-950/5 p-6 backdrop-blur-sm sm:p-8">
                 {/* HUD Corner Accents */}
                 <div className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-cyan-400" />
                 <div className="absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-cyan-400" />
@@ -95,7 +95,8 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
                 </div>
 
                 <div className="absolute -bottom-2.5 right-6 hidden border border-cyan-500/30 bg-[#eff2f5] px-2 text-[10px] tracking-widest text-cyan-500 sm:block">
-                  SYS.LOG // HASH:{Math.random().toString(36).substring(2, 10).toUpperCase()}
+                  SYS.LOG // HASH:
+                  {Math.random().toString(36).substring(2, 10).toUpperCase()}
                 </div>
 
                 <div className="space-y-6 pt-2">
@@ -107,8 +108,9 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
                     return (
                       <div
                         key={award.id}
-                        className={`${metalClass} ${isSpecial ? 'p-6 shadow-xl sm:p-8' : 'p-5'
-                          }`}
+                        className={`${metalClass} ${
+                          isSpecial ? 'p-6 shadow-xl sm:p-8' : 'p-5'
+                        }`}
                       >
                         <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                           <div className="flex items-center gap-3">
@@ -119,37 +121,43 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
                                 )}`}
                               >
                                 <span
-                                  className={isSpecial ? 'text-lg' : 'text-base'}
+                                  className={
+                                    isSpecial ? 'text-lg' : 'text-base'
+                                  }
                                 >
                                   {getRankIcon(award.rank)}
                                 </span>
                                 <span
-                                  className={`font-mono font-bold uppercase tracking-wider ${isSpecial ? 'text-sm' : 'text-xs'
-                                    }`}
+                                  className={`font-mono font-bold uppercase tracking-wider ${
+                                    isSpecial ? 'text-sm' : 'text-xs'
+                                  }`}
                                 >
                                   {award.rank}
                                 </span>
                               </div>
                             )}
                             <h3
-                              className={`font-mono font-bold ${dark ? 'text-white' : 'text-slate-900'
-                                } ${isSpecial
+                              className={`font-mono font-bold ${
+                                dark ? 'text-white' : 'text-slate-900'
+                              } ${
+                                isSpecial
                                   ? 'text-xl tracking-wide sm:text-2xl'
                                   : award.rank === 'Gold'
                                     ? 'text-base sm:text-lg'
                                     : 'text-sm'
-                                }`}
+                              }`}
                             >
                               {award.name}
                             </h3>
                           </div>
                           <span
-                            className={`font-mono ${isSpecial
-                              ? 'text-xs text-slate-400'
-                              : dark
-                                ? 'text-[10px] text-slate-300'
-                                : 'text-[10px] text-slate-600'
-                              }`}
+                            className={`font-mono ${
+                              isSpecial
+                                ? 'text-xs text-slate-400'
+                                : dark
+                                  ? 'text-[10px] text-slate-300'
+                                  : 'text-[10px] text-slate-600'
+                            }`}
                           >
                             {award.date}
                           </span>
@@ -157,12 +165,13 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
 
                         {award.event && (
                           <p
-                            className={`mb-1 font-mono ${isSpecial
-                              ? 'mt-2 text-sm text-slate-300'
-                              : dark
-                                ? 'text-xs text-slate-400'
-                                : 'text-xs text-slate-500'
-                              }`}
+                            className={`mb-1 font-mono ${
+                              isSpecial
+                                ? 'mt-2 text-sm text-slate-300'
+                                : dark
+                                  ? 'text-xs text-slate-400'
+                                  : 'text-xs text-slate-500'
+                            }`}
                           >
                             {award.event}
                           </p>
@@ -170,8 +179,9 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
 
                         {award.prize && (
                           <p
-                            className={`font-mono font-bold ${isSpecial ? 'mt-3 text-sm' : 'text-xs'
-                              } ${dark ? 'text-cyan-300' : 'text-slate-700'}`}
+                            className={`font-mono font-bold ${
+                              isSpecial ? 'mt-3 text-sm' : 'text-xs'
+                            } ${dark ? 'text-cyan-300' : 'text-slate-700'}`}
                           >
                             <span
                               className={
@@ -189,11 +199,13 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
                             href={award.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`mt-3 inline-block font-mono underline underline-offset-4 ${isSpecial ? 'text-sm' : 'text-xs'
-                              } ${dark
+                            className={`mt-3 inline-block font-mono underline underline-offset-4 ${
+                              isSpecial ? 'text-sm' : 'text-xs'
+                            } ${
+                              dark
                                 ? 'text-cyan-300 hover:text-cyan-200'
                                 : 'text-slate-700 hover:text-slate-900'
-                              }`}
+                            }`}
                           >
                             READ MORE →
                           </a>

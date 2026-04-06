@@ -18,10 +18,14 @@ const config: Config = {
       },
       boxShadow: {
         // More subtle outer outlines for light theme to look like the Sibyl clear UI
-        'neon-cyan': '0 0 0 1px rgba(8, 145, 178, 0.4), 0 4px 10px rgba(8, 145, 178, 0.1)',
-        'neon-lime': '0 0 0 1px rgba(101, 163, 13, 0.4), 0 4px 10px rgba(101, 163, 13, 0.1)',
-        'neon-red': '0 0 0 1px rgba(220, 38, 38, 0.4), 0 4px 10px rgba(220, 38, 38, 0.1)',
-        'neon-gold': '0 0 0 1px rgba(202, 138, 4, 0.4), 0 4px 10px rgba(202, 138, 4, 0.1)',
+        'neon-cyan':
+          '0 0 0 1px rgba(8, 145, 178, 0.4), 0 4px 10px rgba(8, 145, 178, 0.1)',
+        'neon-lime':
+          '0 0 0 1px rgba(101, 163, 13, 0.4), 0 4px 10px rgba(101, 163, 13, 0.1)',
+        'neon-red':
+          '0 0 0 1px rgba(220, 38, 38, 0.4), 0 4px 10px rgba(220, 38, 38, 0.1)',
+        'neon-gold':
+          '0 0 0 1px rgba(202, 138, 4, 0.4), 0 4px 10px rgba(202, 138, 4, 0.1)',
       },
       animation: {
         glitch: 'glitch 0.3s ease-in-out',

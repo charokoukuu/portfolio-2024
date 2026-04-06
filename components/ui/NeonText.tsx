@@ -22,7 +22,5 @@ export default function NeonText({
     gold: 'neon-text-gold',
   };
 
-  return (
-    <Tag className={`${colorClass[color]} ${className}`}>{children}</Tag>
-  );
+  return <Tag className={`${colorClass[color]} ${className}`}>{children}</Tag>;
 }

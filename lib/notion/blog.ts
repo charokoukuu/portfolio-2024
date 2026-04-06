@@ -8,8 +8,7 @@ function extractBlogPost(page: any): BlogPost {
     id: page.id,
     title: props.Name?.title?.[0]?.plain_text ?? '',
     slug: props.Slug?.rich_text?.[0]?.plain_text ?? '',
-    tags:
-      props.Tags?.multi_select?.map((t: { name: string }) => t.name) ?? [],
+    tags: props.Tags?.multi_select?.map((t: { name: string }) => t.name) ?? [],
     description: props.Description?.rich_text?.[0]?.plain_text ?? '',
     thumbnail:
       props.Thumbnail?.files?.[0]?.file?.url ??

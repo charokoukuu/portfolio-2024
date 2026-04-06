@@ -28,22 +28,17 @@ export default async function ProjectsPage() {
     {} as Record<string, typeof projects>
   );
 
-  const sortedYears = Object.keys(grouped).sort((a, b) =>
-    b.localeCompare(a)
-  );
+  const sortedYears = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
 
   return (
     <div className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-5xl">
-        <SectionTitle
-          system="DATABASE::PROJECT_ARCHIVE"
-          title="Projects"
-        />
+        <SectionTitle system="DATABASE::PROJECT_ARCHIVE" title="Projects" />
 
         {sortedYears.map((year) => (
           <div key={year} className="relative mt-8">
             {/* Psycho-Pass Style Tech Border Wrapper for Year Group */}
-            <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-950/5 p-6 sm:p-8 backdrop-blur-sm">
+            <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-950/5 p-6 backdrop-blur-sm sm:p-8">
               {/* HUD Corner Accents */}
               <div className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-cyan-400" />
               <div className="absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-cyan-400" />
@@ -56,7 +51,8 @@ export default async function ProjectsPage() {
               </div>
 
               <div className="absolute -bottom-2.5 right-6 hidden border border-cyan-500/30 bg-[#eff2f5] px-2 text-[10px] tracking-widest text-cyan-500 sm:block">
-                SYS.LOG // HASH:{Math.random().toString(36).substring(2, 10).toUpperCase()}
+                SYS.LOG // HASH:
+                {Math.random().toString(36).substring(2, 10).toUpperCase()}
               </div>
 
               <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -105,8 +101,8 @@ export default async function ProjectsPage() {
         {projects.length === 0 && (
           <div className="glass-panel p-12 text-center">
             <p className="font-mono text-sm text-slate-500">
-              <span className="text-cyan-700">&gt;</span> NO PROJECTS FOUND
-              IN NOTION DATABASE
+              <span className="text-cyan-700">&gt;</span> NO PROJECTS FOUND IN
+              NOTION DATABASE
             </p>
             <p className="mt-2 font-mono text-xs text-slate-600">
               Create a Projects database in Notion and configure

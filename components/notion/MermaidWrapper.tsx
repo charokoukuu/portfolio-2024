@@ -6,7 +6,9 @@ const MermaidBlockInner = dynamic(() => import('./MermaidBlock'), {
   ssr: false,
   loading: () => (
     <div className="my-6 rounded-lg border border-cyan-400/50 bg-slate-50 p-8 text-center">
-      <p className="font-mono text-xs text-slate-400 animate-pulse-neon">RENDERING DIAGRAM...</p>
+      <p className="animate-pulse-neon font-mono text-xs text-slate-400">
+        RENDERING DIAGRAM...
+      </p>
     </div>
   ),
 });

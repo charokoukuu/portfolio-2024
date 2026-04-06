@@ -11,7 +11,10 @@ function extractSkill(page: any): Skill {
     proficiency: props.Proficiency?.number ?? 0,
     yearsOfExperience:
       props.YearsOfExperience?.rich_text?.[0]?.plain_text ?? '',
-    icon: props.Icon?.files?.[0]?.file?.url ?? props.Icon?.files?.[0]?.external?.url ?? null,
+    icon:
+      props.Icon?.files?.[0]?.file?.url ??
+      props.Icon?.files?.[0]?.external?.url ??
+      null,
     order: props.Order?.number ?? 0,
   };
 }

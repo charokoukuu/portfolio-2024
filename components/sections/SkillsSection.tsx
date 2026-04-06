@@ -7,7 +7,10 @@ interface SkillsSectionProps {
   skills: Skill[];
 }
 
-const categoryColor: Record<string, 'cyan' | 'lime' | 'gold' | 'red' | 'slate'> = {
+const categoryColor: Record<
+  string,
+  'cyan' | 'lime' | 'gold' | 'red' | 'slate'
+> = {
   Frontend: 'cyan',
   Backend: 'lime',
   Infra: 'gold',

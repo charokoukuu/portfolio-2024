@@ -66,8 +66,9 @@ export default function Header() {
 
       {/* Mobile Nav */}
       <div
-        className={`overflow-hidden border-t border-cyan-300 bg-white/95 backdrop-blur-lg transition-all duration-300 md:hidden ${isOpen ? 'max-h-80' : 'max-h-0 border-t-0'
-          }`}
+        className={`overflow-hidden border-t border-cyan-300 bg-white/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
+          isOpen ? 'max-h-80' : 'max-h-0 border-t-0'
+        }`}
       >
         <nav className="flex flex-col px-4 py-2">
           {NAV_ITEMS.map((item) => (

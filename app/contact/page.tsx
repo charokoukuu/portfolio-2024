@@ -49,8 +49,7 @@ export default function ContactPage() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             username: 'お問い合わせ',
-            avatar_url:
-              'https://avatars.githubusercontent.com/u/35647163?v=4',
+            avatar_url: 'https://avatars.githubusercontent.com/u/35647163?v=4',
             content: `名前: ${form.name}\nメールアドレス: ${form.email}\n\nお問い合わせ内容: \n${form.message}`,
           }),
         }
