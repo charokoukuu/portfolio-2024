@@ -66,7 +66,7 @@ export default async function ProjectDetailPage({
               {project.date}
             </span>
           </div>
-          <h1 className="font-mono text-2xl font-bold text-cyan-50 sm:text-3xl">
+          <h1 className="font-mono text-2xl font-bold text-cyan-900 sm:text-3xl">
             {project.title}
           </h1>
           <div className="mt-4 h-px w-full bg-gradient-to-r from-cyan-700/50 to-transparent" />

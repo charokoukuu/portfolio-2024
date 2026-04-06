@@ -16,21 +16,21 @@ export default function MermaidBlock({ code }: MermaidBlockProps) {
         const mermaid = (await import('mermaid')).default;
         mermaid.initialize({
           startOnLoad: false,
-          theme: 'dark',
+          theme: 'base',
           themeVariables: {
-            darkMode: true,
-            background: '#0f172a',
-            primaryColor: '#22d3ee',
-            primaryTextColor: '#e2e8f0',
-            primaryBorderColor: '#164e63',
-            lineColor: '#22d3ee',
-            secondaryColor: '#1e293b',
-            tertiaryColor: '#0f172a',
+            darkMode: false,
+            background: '#f8fafc',
+            primaryColor: '#0891b2',
+            primaryTextColor: '#1e293b',
+            primaryBorderColor: '#67e8f9',
+            lineColor: '#0891b2',
+            secondaryColor: '#f1f5f9',
+            tertiaryColor: '#e2e8f0',
             fontFamily: '"JetBrains Mono", monospace',
             fontSize: '14px',
-            noteBkgColor: '#1e293b',
-            noteTextColor: '#e2e8f0',
-            noteBorderColor: '#164e63',
+            noteBkgColor: '#f1f5f9',
+            noteTextColor: '#1e293b',
+            noteBorderColor: '#67e8f9',
           },
         });
         const { svg } = await mermaid.render(renderIdRef.current, code);
@@ -40,7 +40,7 @@ export default function MermaidBlock({ code }: MermaidBlockProps) {
       } catch (error) {
         console.error('Mermaid render error:', error);
         if (containerRef.current) {
-          containerRef.current.innerHTML = `<pre class="text-red-400 text-xs font-mono">[Mermaid Error] ${String(error)}</pre>`;
+          containerRef.current.innerHTML = `<pre class="text-red-500 text-xs font-mono">[Mermaid Error] ${String(error)}</pre>`;
         }
       }
     };
@@ -49,7 +49,7 @@ export default function MermaidBlock({ code }: MermaidBlockProps) {
 
   return (
     <div className="my-6">
-      <div className="overflow-x-auto rounded-lg border border-cyan-800/30 bg-slate-900/60 p-4">
+      <div className="overflow-x-auto rounded-lg border border-cyan-400/50 bg-slate-50 p-4">
         <div ref={containerRef} className="flex justify-center [&_svg]:max-w-full" />
       </div>
     </div>

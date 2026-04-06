@@ -69,11 +69,11 @@ export default function ContactPage() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center px-4">
         <GlassPanel className="max-w-md p-8 text-center">
-          <div className="mb-4 font-mono text-4xl text-lime-400">✓</div>
-          <h2 className="mb-2 font-mono text-lg font-bold text-cyan-50">
+          <div className="mb-4 font-mono text-4xl text-lime-600">✓</div>
+          <h2 className="mb-2 font-mono text-lg font-bold text-cyan-900">
             TRANSMISSION COMPLETE
           </h2>
-          <p className="mb-6 font-mono text-sm text-slate-400">
+          <p className="mb-6 font-mono text-sm text-slate-600">
             お問い合わせ内容が送信されました。
             <br />
             ご連絡いただきありがとうございます。
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 placeholder="名前を入力"
               />
               {errors.name && (
-                <p className="mt-1 font-mono text-xs text-red-400">
+                <p className="mt-1 font-mono text-xs text-red-600">
                   {errors.name}
                 </p>
               )}
@@ -143,7 +143,7 @@ export default function ContactPage() {
                 placeholder="メールアドレスを入力"
               />
               {errors.email && (
-                <p className="mt-1 font-mono text-xs text-red-400">
+                <p className="mt-1 font-mono text-xs text-red-600">
                   {errors.email}
                 </p>
               )}
@@ -168,7 +168,7 @@ export default function ContactPage() {
                 placeholder="お問い合わせ内容を入力"
               />
               {errors.message && (
-                <p className="mt-1 font-mono text-xs text-red-400">
+                <p className="mt-1 font-mono text-xs text-red-600">
                   {errors.message}
                 </p>
               )}

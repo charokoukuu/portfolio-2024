@@ -53,7 +53,7 @@ export default async function BlogDetailPage({
             BLOG
           </Link>
           <span className="mx-2">/</span>
-          <span className="text-slate-400">{post.title}</span>
+          <span className="text-slate-500">{post.title}</span>
         </nav>
 
         {/* Header */}
@@ -66,15 +66,15 @@ export default async function BlogDetailPage({
               <SystemBadge key={tag} label={tag} variant="cyan" />
             ))}
           </div>
-          <h1 className="font-mono text-2xl font-bold text-cyan-50 sm:text-3xl">
+          <h1 className="font-mono text-2xl font-bold text-cyan-900 sm:text-3xl">
             {post.title}
           </h1>
           {post.description && (
-            <p className="mt-3 font-mono text-sm text-slate-400">
+            <p className="mt-3 font-mono text-sm text-slate-600">
               {post.description}
             </p>
           )}
-          <div className="mt-4 h-px w-full bg-gradient-to-r from-cyan-700/50 to-transparent" />
+          <div className="mt-4 h-px w-full bg-gradient-to-r from-cyan-400 to-transparent" />
         </header>
 
         {/* Article Content */}
@@ -83,10 +83,10 @@ export default async function BlogDetailPage({
         </article>
 
         {/* Back Link */}
-        <div className="mt-12 border-t border-cyan-800/20 pt-6">
+        <div className="mt-12 border-t border-cyan-300 pt-6">
           <Link
             href="/blog"
-            className="font-mono text-sm text-cyan-500 hover:text-cyan-400"
+            className="font-mono text-sm text-cyan-700 hover:text-cyan-600"
           >
             ← BACK TO BLOG
           </Link>

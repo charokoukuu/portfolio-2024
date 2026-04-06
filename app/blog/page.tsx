@@ -38,7 +38,7 @@ export default async function BlogPage() {
                         alt={post.title}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-950/50 sm:bg-gradient-to-r" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/50 sm:bg-gradient-to-r" />
                     </div>
                   )}
 
@@ -49,11 +49,11 @@ export default async function BlogPage() {
                         {post.publishedAt}
                       </span>
                     </div>
-                    <h3 className="mb-2 font-mono text-base font-bold text-cyan-50 group-hover:text-cyan-300">
+                    <h3 className="mb-2 font-mono text-base font-bold text-cyan-900 group-hover:text-cyan-700">
                       {post.title}
                     </h3>
                     {post.description && (
-                      <p className="mb-3 line-clamp-2 font-mono text-xs leading-relaxed text-slate-400">
+                      <p className="mb-3 line-clamp-2 font-mono text-xs leading-relaxed text-slate-600">
                         {post.description}
                       </p>
                     )}

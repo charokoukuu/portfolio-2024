@@ -26,13 +26,13 @@ export default function InternSection({ internships }: InternSectionProps) {
             {internships.map((intern) => (
               <div key={intern.id} className="relative pl-14">
                 {/* Timeline dot */}
-                <div className="absolute left-[18px] top-4 h-3 w-3 rounded-full border border-cyan-500 bg-slate-950">
+                <div className="absolute left-[18px] top-4 h-3 w-3 rounded-full border border-cyan-500 bg-white">
                   <div className="absolute inset-0.5 rounded-full bg-cyan-500/50" />
                 </div>
 
                 <GlassPanel className="p-5">
                   <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <h3 className="font-mono text-base font-bold text-cyan-50">
+                    <h3 className="font-mono text-base font-bold text-cyan-900">
                       {intern.name}
                     </h3>
                     <span className="font-mono text-xs text-slate-500">

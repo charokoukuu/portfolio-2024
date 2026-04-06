@@ -102,8 +102,8 @@ function renderTable(block: any): React.ReactNode {
                 key={row.id}
                 className={
                   isHeaderRow
-                    ? 'border-b border-cyan-700/40 bg-slate-900/80'
-                    : 'border-b border-cyan-900/20 hover:bg-slate-800/30'
+                    ? 'border-b border-cyan-300 bg-slate-50'
+                    : 'border-b border-cyan-300 hover:bg-slate-100'
                 }
               >
                 {cells.map((cell: any, cellIndex: number) => {
@@ -114,8 +114,8 @@ function renderTable(block: any): React.ReactNode {
                       key={cellIndex}
                       className={`px-4 py-2.5 text-left ${
                         isHeaderRow || isRowHeaderCell
-                          ? 'font-bold text-cyan-300'
-                          : 'text-slate-300'
+                          ? 'font-bold text-cyan-700'
+                          : 'text-slate-700'
                       }`}
                     >
                       {renderRichText(cell)}
@@ -156,7 +156,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
       const text = renderRichText(value.rich_text);
       if (!text) return <div key={block.id} className="mb-2 h-4" />;
       return (
-        <p key={block.id} className="mb-4 leading-relaxed text-slate-300">
+        <p key={block.id} className="mb-4 leading-relaxed text-slate-700">
           {text}
         </p>
       );
@@ -168,7 +168,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
         <h1
           key={block.id}
           id={`h-${block.id}`}
-          className="mb-4 mt-8 font-mono text-2xl font-bold text-cyan-50"
+          className="mb-4 mt-8 font-mono text-2xl font-bold text-cyan-900"
         >
           {renderRichText(value.rich_text)}
         </h1>
@@ -179,7 +179,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
         <h2
           key={block.id}
           id={`h-${block.id}`}
-          className="mb-3 mt-6 font-mono text-xl font-bold text-cyan-100"
+          className="mb-3 mt-6 font-mono text-xl font-bold text-cyan-800"
         >
           <span className="mr-2 text-cyan-700">#</span>
           {renderRichText(value.rich_text)}
@@ -191,7 +191,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
         <h3
           key={block.id}
           id={`h-${block.id}`}
-          className="mb-2 mt-4 font-mono text-lg font-semibold text-cyan-200"
+          className="mb-2 mt-4 font-mono text-lg font-semibold text-cyan-800"
         >
           <span className="mr-2 text-cyan-700">##</span>
           {renderRichText(value.rich_text)}
@@ -201,7 +201,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
     // ── Lists ──
     case 'bulleted_list_item':
       return (
-        <li key={block.id} className="mb-1 ml-4 text-slate-300">
+        <li key={block.id} className="mb-1 ml-4 text-slate-700">
           <span className="mr-2 text-cyan-600">▸</span>
           {renderRichText(value.rich_text)}
           {block.children && (
@@ -216,7 +216,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
       return (
         <li
           key={block.id}
-          className="mb-1 ml-4 list-decimal text-slate-300 marker:text-cyan-600"
+          className="mb-1 ml-4 list-decimal text-slate-700 marker:text-cyan-600"
         >
           {renderRichText(value.rich_text)}
           {block.children && (
@@ -239,7 +239,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
           >
             {value.checked ? '✓' : ''}
           </span>
-          <span className={value.checked ? 'text-slate-500 line-through' : 'text-slate-300'}>
+          <span className={value.checked ? 'text-slate-400 line-through' : 'text-slate-700'}>
             {renderRichText(value.rich_text)}
           </span>
         </div>
@@ -258,7 +258,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
 
       return (
         <div key={block.id} className="my-4">
-          <div className="overflow-x-auto rounded-lg border border-cyan-800/30 bg-slate-900/80 p-4">
+          <div className="overflow-x-auto rounded-lg border border-cyan-400/50 bg-slate-50 p-4">
             <div className="mb-2 flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-red-500/60" />
               <span className="h-2 w-2 rounded-full bg-yellow-500/60" />
@@ -269,7 +269,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
                 </span>
               )}
             </div>
-            <pre className="font-mono text-sm leading-relaxed text-cyan-200 whitespace-pre-wrap break-words">
+            <pre className="font-mono text-sm leading-relaxed text-cyan-900 whitespace-pre-wrap break-words">
               <code>{codeText}</code>
             </pre>
           </div>
@@ -283,8 +283,8 @@ function renderBlock(block: any, index: number): React.ReactNode {
     // ── Equation (KaTeX) ──
     case 'equation':
       return (
-        <div key={block.id} className="my-4 overflow-x-auto rounded-lg border border-cyan-800/20 bg-slate-900/40 p-4 text-center">
-          <code className="font-mono text-sm text-cyan-200">{value.expression}</code>
+        <div key={block.id} className="my-4 overflow-x-auto rounded-lg border border-cyan-400/50 bg-slate-100 p-4 text-center">
+          <code className="font-mono text-sm text-cyan-800">{value.expression}</code>
         </div>
       );
 
@@ -412,10 +412,10 @@ function renderBlock(block: any, index: number): React.ReactNode {
       return (
         <div
           key={block.id}
-          className="my-4 flex gap-3 rounded-lg border border-cyan-800/30 bg-cyan-950/20 p-4"
+          className="my-4 flex gap-3 rounded-lg border border-cyan-400/50 bg-cyan-50/50 p-4"
         >
           <span className="shrink-0 text-lg">{value.icon?.emoji ?? '💡'}</span>
-          <div className="min-w-0 flex-1 text-slate-300">
+          <div className="min-w-0 flex-1 text-slate-700">
             {renderRichText(value.rich_text)}
             {block.children && (
               <div className="mt-2">
@@ -431,7 +431,7 @@ function renderBlock(block: any, index: number): React.ReactNode {
       return (
         <blockquote
           key={block.id}
-          className="my-4 border-l-2 border-cyan-600/50 pl-4 text-slate-400"
+          className="my-4 border-l-2 border-cyan-400 pl-4 text-slate-600"
         >
           {renderRichText(value.rich_text)}
           {block.children && (
@@ -451,9 +451,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
       return (
         <details
           key={block.id}
-          className="my-2 rounded-lg border border-cyan-800/20 bg-slate-900/30 p-3"
+          className="my-2 rounded-lg border border-cyan-300 bg-white p-3"
         >
-          <summary className="cursor-pointer font-mono text-sm text-cyan-300">
+          <summary className="cursor-pointer font-mono text-sm text-cyan-700">
             {renderRichText(value.rich_text)}
           </summary>
           {block.children && (

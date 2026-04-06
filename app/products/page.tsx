@@ -117,7 +117,7 @@ export default async function ProductsPage() {
                       alt={product.prototypeNm}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/5 to-transparent" />
                     {category && (
                       <div className="absolute bottom-2 right-2">
                         <SystemBadge
@@ -128,7 +128,7 @@ export default async function ProductsPage() {
                     )}
                   </div>
                   <div className="p-4">
-                    <h3 className="mb-2 font-mono text-sm font-bold text-cyan-50">
+                    <h3 className="mb-2 font-mono text-sm font-bold text-cyan-900">
                       {product.prototypeNm}
                     </h3>
                     <p className="font-mono text-xs leading-relaxed text-slate-500">

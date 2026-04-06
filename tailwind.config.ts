@@ -8,19 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'neon-cyan': '#22d3ee',
-        'neon-lime': '#a3e635',
-        'sybil-red': '#ef4444',
-        'sybil-gold': '#facc15',
+        'neon-cyan': '#0891b2', // cyan-600
+        'neon-lime': '#65a30d', // lime-600
+        'sybil-red': '#dc2626', // red-600
+        'sybil-gold': '#ca8a04', // yellow-600
       },
       fontFamily: {
         mono: ['"JetBrains Mono"', '"Space Mono"', 'monospace'],
       },
       boxShadow: {
-        'neon-cyan': '0 0 5px #22d3ee, 0 0 20px rgba(34,211,238,0.3)',
-        'neon-lime': '0 0 5px #a3e635, 0 0 20px rgba(163,230,53,0.3)',
-        'neon-red': '0 0 5px #ef4444, 0 0 20px rgba(239,68,68,0.3)',
-        'neon-gold': '0 0 5px #facc15, 0 0 20px rgba(250,204,21,0.3)',
+        // More subtle outer outlines for light theme to look like the Sibyl clear UI
+        'neon-cyan': '0 0 0 1px rgba(8, 145, 178, 0.4), 0 4px 10px rgba(8, 145, 178, 0.1)',
+        'neon-lime': '0 0 0 1px rgba(101, 163, 13, 0.4), 0 4px 10px rgba(101, 163, 13, 0.1)',
+        'neon-red': '0 0 0 1px rgba(220, 38, 38, 0.4), 0 4px 10px rgba(220, 38, 38, 0.1)',
+        'neon-gold': '0 0 0 1px rgba(202, 138, 4, 0.4), 0 4px 10px rgba(202, 138, 4, 0.1)',
       },
       animation: {
         glitch: 'glitch 0.3s ease-in-out',
@@ -45,26 +46,26 @@ const config: Config = {
         },
         'pulse-neon': {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.7' },
+          '50%': { opacity: '0.6' },
         },
         flicker: {
           '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
             opacity: '1',
           },
-          '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': { opacity: '0.4' },
+          '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': { opacity: '0.6' },
         },
         'holo-expand': {
-          '0%': { transform: 'scale(0.8)', opacity: '0' },
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
         'border-glow': {
           '0%, 100%': {
-            borderColor: 'rgba(34, 211, 238, 0.3)',
-            boxShadow: '0 0 5px rgba(34, 211, 238, 0.1)',
+            borderColor: 'rgba(8, 145, 178, 0.3)',
+            boxShadow: '0 0 0 1px rgba(8, 145, 178, 0.1)',
           },
           '50%': {
-            borderColor: 'rgba(34, 211, 238, 0.6)',
-            boxShadow: '0 0 15px rgba(34, 211, 238, 0.2)',
+            borderColor: 'rgba(8, 145, 178, 0.7)',
+            boxShadow: '0 0 0 2px rgba(8, 145, 178, 0.3)',
           },
         },
         typing: {
@@ -74,7 +75,7 @@ const config: Config = {
       },
       backgroundImage: {
         'grid-pattern':
-          'linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px)',
+          'linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px)',
       },
       backgroundSize: {
         'grid-pattern': '50px 50px',

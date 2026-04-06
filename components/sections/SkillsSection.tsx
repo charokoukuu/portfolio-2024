@@ -35,7 +35,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                     />
                   )}
                   <div>
-                    <p className="font-mono text-sm font-bold text-cyan-50">
+                    <p className="font-mono text-sm font-bold text-cyan-900">
                       {skill.name}
                     </p>
                     <p className="font-mono text-[10px] text-slate-500">

@@ -7,11 +7,11 @@ interface SystemBadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  cyan: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-400',
-  lime: 'border-lime-500/40 bg-lime-500/10 text-lime-400',
-  red: 'border-red-500/40 bg-red-500/10 text-red-400',
-  gold: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-400',
-  slate: 'border-slate-500/40 bg-slate-500/10 text-slate-400',
+  cyan: 'border-cyan-400/80 bg-white text-cyan-800',
+  lime: 'border-lime-400/80 bg-white text-lime-800',
+  red: 'border-red-400/80 bg-white text-red-800',
+  gold: 'border-yellow-400/80 bg-white text-yellow-800',
+  slate: 'border-slate-400/80 bg-white text-slate-800',
 };
 
 export default function SystemBadge({

@@ -15,18 +15,18 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-cyan-800/30 bg-slate-950/80 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 border-b border-cyan-400/50 bg-white/80 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <Link
           href="/"
           className="group flex items-center gap-2 font-mono text-lg tracking-widest"
         >
-          <span className="text-cyan-500 transition-colors group-hover:text-cyan-400">
+          <span className="text-cyan-700 transition-colors group-hover:text-cyan-600">
             SAITO
           </span>
           <span className="text-slate-600">//</span>
-          <span className="text-slate-300 transition-colors group-hover:text-white">
+          <span className="text-slate-700 transition-colors group-hover:text-cyan-900">
             HINATA
           </span>
         </Link>
@@ -37,7 +37,7 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className="relative px-4 py-2 font-mono text-xs tracking-widest text-slate-400 transition-colors hover:text-cyan-400"
+              className="relative px-4 py-2 font-mono text-xs tracking-widest text-slate-600 transition-colors hover:text-cyan-700"
             >
               <span className="relative z-10">{item.label}</span>
               <span className="absolute inset-0 rounded bg-cyan-500/0 transition-colors hover:bg-cyan-500/5" />
@@ -66,7 +66,7 @@ export default function Header() {
 
       {/* Mobile Nav */}
       <div
-        className={`overflow-hidden border-t border-cyan-800/20 bg-slate-950/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
+        className={`overflow-hidden border-t border-cyan-300 bg-white/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
           isOpen ? 'max-h-80' : 'max-h-0 border-t-0'
         }`}
       >
@@ -76,7 +76,7 @@ export default function Header() {
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="border-b border-cyan-900/20 py-3 font-mono text-sm tracking-widest text-slate-300 transition-colors hover:text-cyan-400"
+              className="border-b border-cyan-300/50 py-3 font-mono text-sm tracking-widest text-slate-700 transition-colors hover:text-cyan-700"
             >
               <span className="mr-2 text-cyan-700">&gt;</span>
               {item.label}

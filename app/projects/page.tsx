@@ -61,12 +61,12 @@ export default async function ProjectsPage() {
                           alt={project.title}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/5 to-transparent" />
                       </div>
                     )}
                     <div className="p-4">
                       <div className="mb-1 flex items-center justify-between">
-                        <h4 className="font-mono text-sm font-bold text-cyan-50">
+                        <h4 className="font-mono text-sm font-bold text-cyan-900">
                           {project.title}
                         </h4>
                         {project.category && (

@@ -8,13 +8,13 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-5xl">
-        <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-12">
+        <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:gap-12">
           {/* Profile Image */}
           <div className="relative shrink-0">
-            <div className="h-40 w-40 overflow-hidden rounded-lg border border-cyan-700/40 sm:h-48 sm:w-48">
+            <div className="h-40 w-40 overflow-hidden rounded-lg border border-cyan-400/80 sm:h-48 sm:w-48">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://avatars.githubusercontent.com/u/35647163?v=4"
+                src="profile.JPG"
                 alt="Saito Hinata"
                 className="h-full w-full object-cover"
               />
@@ -34,13 +34,36 @@ export default function HeroSection() {
             <GlitchText
               text="SAITO HINATA"
               as="h1"
-              className="mb-4 text-3xl font-bold tracking-wider text-cyan-50 sm:text-4xl"
+              className="mb-4 text-3xl font-bold tracking-wider text-cyan-900 sm:text-4xl"
             />
-            <p className="mb-6 font-mono text-sm leading-relaxed text-slate-400">
-              LINEヤフー株式会社
-              <br />
-              ソフトウェアエンジニア
-            </p>
+            <div className="relative rounded-sm border border-cyan-500/50 bg-cyan-950/5 p-6 sm:p-8 backdrop-blur-sm mb-6">
+              {/* HUD Corner Accents */}
+              <div className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-cyan-400" />
+              <div className="absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-cyan-400" />
+              <div className="absolute bottom-0 left-0 h-4 w-4 border-b-2 border-l-2 border-cyan-400" />
+              <div className="absolute bottom-0 right-0 h-4 w-4 border-b-2 border-r-2 border-cyan-400" />
+
+              {/* Cyberpunk Header Badge Overlay */}
+              <div className="absolute -top-3.5 left-6 border border-cyan-500/50 bg-[#eff2f5] px-3 py-0.5 font-mono text-xs font-bold tracking-widest text-cyan-600 sm:text-sm">
+                [ SYS_PROFILE::SUMMARY ]
+              </div>
+
+              <div className="absolute -bottom-2.5 right-6 hidden border border-cyan-500/30 bg-[#eff2f5] px-2 text-[10px] tracking-widest text-cyan-500 sm:block">
+                SYS.LOG // {Math.random().toString(36).substring(2, 10).toUpperCase()}
+              </div>
+
+              <div className="space-y-4 text-left font-mono text-[13px] leading-relaxed text-slate-700 sm:text-sm sm:leading-loose">
+                <p>
+                  2026年新卒でLINEヤフー株式会社にソフトウェアエンジニアとして入社。同年、大阪工業大学大学院 ロボティクス＆デザイン工学研究科 博士前期課程 修了。
+                </p>
+                <p>
+                  クライアントからサーバーまで一貫したWebサービス開発が得意です。技術スタックは Next.js / Vue.js に加え、Node.js (NestJS, Express)、MongoDB, PostgreSQL など。最近は gRPC や GraphQL を用いたBFF開発や、クリーンアーキテクチャベースのマイクロサービス設計にも注力しています。
+                </p>
+                <p>
+                  フリーランスとしての受託開発やPjMの経験も持ち、企画や要件定義から実装・納品まで幅広く担当できます。チーム開発やハッカソンへの参加も好きで、複数の技術系イベントでの受賞歴があります。
+                </p>
+              </div>
+            </div>
 
             {/* Crime Coefficient Display */}
             {/* <GlassPanel className="inline-block max-w-md p-4">
