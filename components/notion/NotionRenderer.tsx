@@ -112,11 +112,10 @@ function renderTable(block: any): React.ReactNode {
                   return (
                     <CellTag
                       key={cellIndex}
-                      className={`px-4 py-2.5 text-left ${
-                        isHeaderRow || isRowHeaderCell
-                          ? 'font-bold text-cyan-700'
-                          : 'text-slate-700'
-                      }`}
+                      className={`px-4 py-2.5 text-left ${isHeaderRow || isRowHeaderCell
+                        ? 'font-bold text-cyan-700'
+                        : 'text-slate-700'
+                        }`}
                     >
                       {renderRichText(cell)}
                     </CellTag>
@@ -231,11 +230,10 @@ function renderBlock(block: any, index: number): React.ReactNode {
       return (
         <div key={block.id} className="mb-1 flex items-start gap-2">
           <span
-            className={`mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded border font-mono text-[10px] ${
-              value.checked
-                ? 'border-lime-500/50 bg-lime-500/20 text-lime-400'
-                : 'border-slate-600 text-transparent'
-            }`}
+            className={`mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded border font-mono text-[10px] ${value.checked
+              ? 'border-lime-500/50 bg-lime-500/20 text-lime-400'
+              : 'border-slate-600 text-transparent'
+              }`}
           >
             {value.checked ? '✓' : ''}
           </span>
@@ -293,10 +291,10 @@ function renderBlock(block: any, index: number): React.ReactNode {
       const src = value.type === 'file' ? value.file.url : value.external?.url;
       const caption = value.caption?.[0]?.plain_text ?? '';
       return (
-        <figure key={block.id} className="my-6">
-          <div className="neon-border overflow-hidden rounded-lg">
+        <figure key={block.id} className="my-6 text-center">
+          <div className="inline-block overflow-hidden rounded-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt={caption || 'Image'} className="w-full" loading="lazy" />
+            <img src={src} alt={caption || 'Image'} className="w-[300px]" loading="lazy" />
           </div>
           {caption && (
             <figcaption className="mt-2 text-center font-mono text-xs text-slate-500">
@@ -315,9 +313,9 @@ function renderBlock(block: any, index: number): React.ReactNode {
       // If it's a file URL, render as <video>, else use EmbedBlock
       if (value.type === 'file') {
         return (
-          <div key={block.id} className="my-6">
-            <div className="neon-border overflow-hidden rounded-lg">
-              <video src={videoUrl} controls className="w-full" />
+          <div key={block.id} className="my-6 text-center">
+            <div className="inline-block overflow-hidden rounded-lg">
+              <video src={videoUrl} controls className="max-w-full" />
             </div>
           </div>
         );

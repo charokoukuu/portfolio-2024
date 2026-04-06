@@ -1,10 +1,12 @@
 import HeroSection from '@/components/sections/HeroSection';
 import SkillsSection from '@/components/sections/SkillsSection';
 import InternSection from '@/components/sections/InternSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
 import ProductsSection from '@/components/sections/ProductsSection';
 import AwardsSection from '@/components/sections/AwardsSection';
 import { getSkills } from '@/lib/notion/skills';
 import { getInternships } from '@/lib/notion/internships';
+import { getProjects } from '@/lib/notion/projects';
 import { getAwards } from '@/lib/notion/awards';
 import { Protopedia } from '@/lib/types/prototype';
 
@@ -36,9 +38,10 @@ async function getProtopediaProducts(): Promise<Protopedia[]> {
 }
 
 export default async function Home() {
-  const [skills, internships, products, awards] = await Promise.all([
+  const [skills, internships, projects, products, awards] = await Promise.all([
     getSkills(),
     getInternships(),
+    getProjects(),
     getProtopediaProducts(),
     getAwards(),
   ]);
@@ -50,6 +53,8 @@ export default async function Home() {
       <SkillsSection skills={skills} />
       <div className="section-divider" />
       <InternSection internships={internships} />
+      <div className="section-divider" />
+      <ProjectsSection projects={projects} />
       <div className="section-divider" />
       <ProductsSection products={products} />
       <div className="section-divider" />
