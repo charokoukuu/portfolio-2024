@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScanlineOverlay from '@/components/layout/ScanlineOverlay';
+import { PostHogProvider } from '@/components/providers/PostHogProvider';
 
 const jetbrains = JetBrains_Mono({
   subsets: ['latin'],
@@ -61,12 +62,14 @@ export default function RootLayout({
   return (
     <html lang="ja" className="dark">
       <body className={`${jetbrains.variable} ${spaceMono.variable} font-mono`}>
-        <ScanlineOverlay />
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        <PostHogProvider>
+          <ScanlineOverlay />
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </PostHogProvider>
       </body>
     </html>
   );
