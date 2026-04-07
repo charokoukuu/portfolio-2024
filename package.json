@@ -13,6 +13,7 @@
     "@notionhq/client": "^2.2.15",
     "mermaid": "^11.14.0",
     "next": "^15.3.0",
+    "posthog-js": "^1.365.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
