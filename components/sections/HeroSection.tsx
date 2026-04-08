@@ -55,8 +55,7 @@ export default function HeroSection() {
 
               <div className="space-y-4 text-left font-mono text-[13px] leading-relaxed text-slate-700 sm:text-sm sm:leading-loose">
                 <p>
-                  2026年新卒でLINEヤフー株式会社にソフトウェアエンジニアとして入社。同年、大阪工業大学大学院
-                  ロボティクス＆デザイン工学研究科 博士前期課程 修了。
+                  2026年新卒でLINEヤフー株式会社にソフトウェアエンジニアとして入社。
                 </p>
                 <p>
                   クライアントからサーバーまで一貫したWebサービス開発が得意です。技術スタックは

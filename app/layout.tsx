@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | HINATA SAITO',
   },
   description:
-    '斎藤陽太のポートフォリオ。大阪工業大学大学院 ロボティクス＆デザイン工学研究科所属。Next.js, Vue.js, IoT, AI/MLの専門知識とプロダクト開発経験を紹介。',
+    '斎藤陽太のポートフォリオ。LINEヤフー株式会社 ソフトウェアエンジニア。Next.js, Vue.js, IoT, AI/MLの専門知識とプロダクト開発経験を紹介。',
   keywords:
     '斎藤陽太, WEBエンジニア, Next.js, Vue.js, Nest.js, IoT, AI, ポートフォリオ',
   openGraph: {
